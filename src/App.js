@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import words from './data/words';
+import Header from './components/Header';
+import Main from './components/Main';
+import Footer from './components/Footer';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  getRandomArrayItem = (array) => {
+    return array[Math.floor(Math.random() * array.length)];
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <Header />
+        <h2>{this.getRandomArrayItem(words)}</h2>
+        <Main />
+        <Footer />
+      </div>
+    );
+  }
 }
 
 export default App;
