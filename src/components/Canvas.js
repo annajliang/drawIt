@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Buttons from './Buttons';
 import HowToPlay from './HowToPlay';
 import words from '../data/words';
+import firebase from "./../firebase";
 
 class Canvas extends Component {
     constructor() {
@@ -84,7 +85,14 @@ class Canvas extends Component {
         // save canvas image as data url (png format by default)
         const drawingUrl = canvas.toDataURL();
         console.log(drawingUrl);
+        const dbRef = firebase.database().ref();
+        dbRef.push(drawingUrl);
     }
+
+    // pushToDb = () => {
+    //     // database reference
+
+    // }
 
     render() {
         console.log('i rendered');
