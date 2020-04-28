@@ -65,21 +65,23 @@ body {
 
 header {
   background-color: #f7d3c0;
-  /* display: flex; */
-  height: 5vh;
+  height: 7vh;
+}
+
+nav {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .navbarLinks {
   display: flex;
-  padding-top: 0.6rem;
-  justify-content: flex-end;
-  margin-right: 6rem;
 }
 
 .navbarLinks > *:not(:last-child) {
   margin-right: 4rem;
 }
-
 
 a {
   font-family: Karla-Bold;
@@ -91,6 +93,17 @@ a {
 .home {
   background-image: linear-gradient(rgba(255, 255, 255, 0) 60%, #fff 20%);
   /* border-bottom: 2px solid black; */
+}
+
+h1 {
+  font-family: Karla-Bold;
+  letter-spacing: 0.5px;
+  text-transform: lowercase;
+  font-size: 1.3rem;
+}
+
+.divider {
+  margin: 0 2rem;;
 }
 
 p {
@@ -108,7 +121,7 @@ p {
   /* background-image: linear-gradient(rgba(255, 255, 255, 0) 40%, #fff 20%); */
 }
 
-h1 {
+h2 {
   font-family: Poppins;
   font-size: 6rem;
   -webkit-text-stroke-width: 3px;
@@ -117,13 +130,17 @@ h1 {
   background-image: linear-gradient(rgba(255, 255, 255, 0) 60%, #f7d3c0 20%);
   display: inline-block;
   position: relative;
-  z-index: 1;
-  top: 3.4rem;
+  /* z-index: 1;
+  top: 3.4rem; */
   right: 7rem;
-  align-self: center;
+  margin-bottom: 1rem;
 }
 
-h2 {
+.testing {
+  height: 100%;
+}
+
+h3 {
   font-family: Poppins-SemiBold;
   display: inline-block;
   z-index: 3;
@@ -142,12 +159,6 @@ h2 {
 
 section {
   width: 100%;
-  margin-top: 6rem;
-  /* margin-bottom: 2rem; */
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative; */
 }
 
 .drawItContainer {
@@ -285,7 +296,7 @@ img {
     padding: 0 0.5rem 0 2.8rem;
 }
 
-h3 {
+h4 {
   font-family: Poppins-SemiBold;
   font-size: 2rem;
   margin: auto;

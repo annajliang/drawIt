@@ -83,10 +83,11 @@ class Canvas extends Component {
         console.log('i rendered');
         return (
             <section>
+                <h2>draw it <span role="img" alt="" aria-label="">✏️</span></h2>
                 <div className="drawItContainer wrapper">
                     <Buttons colorFn={this.changeColor} clearFn={this.clearCanvas} eraseFn={this.eraseCanvas} />
                     <div className="canvasAndHowTo">
-                        <h2>{this.getRandomArrayItem(words)}</h2>
+                        <h3>{this.getRandomArrayItem(words)}</h3>
                         <canvas ref="canvas" className="canvas" onMouseDown={this.startDrawing} onMouseMove={this.draw} onMouseUp={this.stopDrawing} width={450} height={500} />
                         <HowToPlay />
                     </div>

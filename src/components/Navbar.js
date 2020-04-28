@@ -9,18 +9,20 @@ class Navbar extends Component {
         return(
             <>
                 <nav>
+                    <h1>draw it</h1>
+                    <span class="divider">|</span>
                     <ul className="navbarLinks">
                         <li>
                             <Link to="/" className="home">Home</Link>
-                            {/* <Route path="/app" component={App} /> */}
+                            {/* <span class="divider">|</span> */}
                         </li>
                         <li>
                             <Link to="/gallery">Gallery</Link>
-                            {/* <Route path="/gallery" component={Gallery} /> */}
+                            {/* <span class="divider">|</span> */}
                         </li>
                         <li>
                             <Link to="/guess">Guess</Link>
-                            {/* <Route path="/guess" component={Guess} /> */}
+                            {/* <span class="divider">|</span> */}
                         </li>
                     </ul>
                 </nav>
