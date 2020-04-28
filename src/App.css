@@ -22,7 +22,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 .wrapper {
   margin: 0 auto;
   max-width: 1280px;
-  width: 85%;
+  width: 75%;
 }
 
 /* FONTS  */
@@ -55,35 +55,27 @@ body {
     font-family: Karla-Regular;
     color: #333333;
     background-image: url("./assets/bg.jpg");
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    background-size: cover;
 }
 
 header {
   background-color: #f7d3c0;
-  display: flex;
-  height: 3rem;
+  /* display: flex; */
+  height: 5vh;
 }
 
-nav {
-  width: 100%;
-}
-
-/* .navbarLinks {
+.navbarLinks {
   display: flex;
-} */
+  padding-top: 0.6rem;
+  justify-content: flex-end;
+}
 
 
 a {
   text-decoration: none;
   color: inherit;
+  text-transform: uppercase;
+  margin-right: 2rem;
 }
 
 p {
@@ -106,15 +98,12 @@ h1 {
   font-size: 6rem;
   -webkit-text-stroke-width: 3px;
   -webkit-text-stroke-color: white;
-  /* text-transform: uppercase; */
   text-shadow: 3px 3px #e6e6d8, 6px 6px #c6a39a;
   background-image: linear-gradient(rgba(255, 255, 255, 0) 60%, #f7d3c0 20%);
   display: inline-block;
   position: relative;
   z-index: 1;
-  /* top: 6rem; */
-  top: 5rem;
-  /* left: 5.5rem; */
+  top: 3.4rem;
   right: 7rem;
   align-self: center;
 }
@@ -123,14 +112,12 @@ h2 {
   font-family: Poppins-SemiBold;
   display: inline-block;
   z-index: 3;
-  position: relative;
-  top: 12rem;
-  /* left: 5.5rem; */
-  right: 7.9rem;
+  position: absolute;
+  top: 1.3rem;
+  left: 1rem;
   font-size: 2rem;
   height: 75px;
   width: 415px;
-  /* width: 370px; */
   padding: 1rem 0;
   background-color: #f7d3c0;
   border: 3px solid #fff;
@@ -141,31 +128,31 @@ h2 {
 .canvasContainer {
   width: 100%;
   margin-top: 6rem;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
   display: flex;
+  flex-direction: column;
   justify-content: center;
   position: relative;
 }
 
+.test {
+  display: flex;
+  justify-content: center;
+}
+
+.hi {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
 
 canvas {
     border: 2px dashed;
     width: 450px;
     height: 500px;
-    /* border: 2px dashed #B5E6FA; */
     padding: 1rem 0.5rem;
     border-radius: 1rem;
     background-color: white;
-    order: 1;
-    /* background-image: url("./assets/linedpaper.jpg");
-    background-size: cover;
-    background-size: 60rem; */
-}
-
-@keyframes rotate {
-	100% {
-		transform: rotate(1turn);
-	}
 }
 
 .btnContainer {
@@ -181,22 +168,18 @@ button {
   /* padding: 7px 39px; */
   width: 150px;
   height: 50px;
-  /* vertical-align: middle; */
-  /* width: auto; */
   outline: 0;
   line-height: 2rem;
   letter-spacing: 0.5px;
   text-transform: lowercase;
   font-family: Poppins-SemiBold;
-  /* margin: 0; */
   -webkit-transition: color .15s ease-in-out, background-color .15s ease-in-out,border-color .15s ease-in-out;
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
   cursor: pointer;
   background-color: transparent;
   display: flex;
   justify-content: center;
-
-  /* border: 2px solid transparent; */
+  align-items: center;
 }
 
 button:before {
@@ -268,14 +251,10 @@ img {
   background-image: url("./assets/linedpaper.jpg");
   background-size: 60rem;
   margin-left: 1rem;
-  /* height: 600px;
-  width: 370px; */
   width: 400px;
-  /* height: 400px; */
   order: 3;
   border: 2px dashed #B5E6FA;
   padding-top: 3rem;
-  /* padding-left: 2.5rem; */
 }
 
 .howToPlay li {
@@ -308,4 +287,11 @@ footer {
   background-color: #f7d3c0;
   margin-top: 5px;
   padding: 0.5rem 0rem;
+}
+
+main {
+  height: 95vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Buttons from './Buttons';
 import HowToPlay from './HowToPlay';
+import words from '../data/words';
 // import Instructions from './Instructions';
 
 class Main extends Component {
@@ -75,14 +76,23 @@ class Main extends Component {
         // this.ctx.fill();
     }
 
+    getRandomArrayItem = (array) => {
+        return array[Math.floor(Math.random() * array.length)];
+    };
+
     render() {
         console.log('i rendered');
         return (
             <main>
                 <section className="canvasContainer wrapper">
-                    <canvas ref="canvas" className="canvas" onMouseDown={this.startDrawing} onMouseMove={this.draw} onMouseUp={this.stopDrawing} width={450} height={500} />
-                    <Buttons colorFn={this.changeColor} clearFn={this.clearCanvas} eraseFn={this.eraseCanvas} />
-                    <HowToPlay />
+                    <div className="test">
+                        <Buttons colorFn={this.changeColor} clearFn={this.clearCanvas} eraseFn={this.eraseCanvas} />
+                        <div className="hi">
+                            <h2>{this.getRandomArrayItem(words)}</h2>
+                            <canvas ref="canvas" className="canvas" onMouseDown={this.startDrawing} onMouseMove={this.draw} onMouseUp={this.stopDrawing} width={450} height={500} />
+                        </div>
+                        <HowToPlay />
+                    </div>
                 </section>
             </main>
         )

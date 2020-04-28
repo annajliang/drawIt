@@ -11,9 +11,9 @@ class ColorButton extends Component {
     render() {
         return(
             <button onClick={this.props.onClick}>
-                <span className="buttonText">Color
+                <span className="buttonText"><label htmlFor="colorSelection">Color</label>
                 <span className="divider"> | </span>
-                <input name="colorSelection" type="color" className="colorSelection" onChange={this.getHexColor}/>
+                <input name="colorSelection" id="colorSelection" type="color" className="colorSelection" onChange={this.getHexColor}/>
                 </span>
             </button>   
         )
