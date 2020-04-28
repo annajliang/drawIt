@@ -14,12 +14,11 @@ class App extends Component {
       <Router>
         <div className="App">
           <Header />
-          <main>
-            {/* <Canvas /> */}
+          {/* <main> */}
             <Route exact path="/" component={Canvas} />
+          {/* </main> */}
             <Route path="/gallery" component={Gallery} />
             <Route path="/guess" component={Guess} />
-          </main>
           <Footer />
         </div>
       </Router>

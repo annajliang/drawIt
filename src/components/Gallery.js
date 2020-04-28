@@ -21,7 +21,7 @@ class Gallery extends Component {
             for (let key in dbData) {
                 drawingsArray.push(dbData[key]);
             }
-            
+
             this.setState({
                 drawings: drawingsArray,
             })
@@ -31,21 +31,25 @@ class Gallery extends Component {
 
     render() {
         return(
-            <div className="gallery">
-                <p>A collection of drawings done by other users around the globe! Can you guess the correct word?</p>
-                <ul className="galleryGrid">
-                    {
-                        this.state.drawings.map((drawing, i) => {
-                            return(
-                                <li className="userDrawing">
-                                    <img src={drawing} alt="" key={i}/>
-                                </li>
-                            )
+            <section className="gallery">
+                <div className="wrapper">
+                    <p>A collection of drawings done by other users around the globe! Can you guess the correct word?</p>
+                    <ul className="galleryGrid">
+                        {
+                            this.state.drawings.map((drawing, i) => {
+                                return (
+                                  <li className="userDrawing">
+                                    <span className="buttonText">
+                                      <img src={drawing} alt="" key={i} />
+                                    </span>
+                                  </li>
+                                );
 
-                        })
-                    }
-                </ul>
-            </div>
+                            })
+                        }
+                    </ul>
+                </div>
+            </section>
         )
     }
 }

@@ -350,27 +350,18 @@ label {
   }
 }  
 
+/* .gallery {
+  display: flex;
+
+} */
+
 .galleryGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   grid-gap: 40px;
-  margin-top: 50px;
+  margin: 40px 0;
+  align-content: flex-start;
 }
-
-/* @media (max-width: 1220px) {
-  .test {
-    flex-direction: column-reverse;
-  }
-} */
-
-/* .test {
-  display: flex;
-  flex-direction: column-reverse;
-}
-
-.buttonContainer {
-  display: flex;
-} */
 
 .gallery p {
   margin-top: 3rem;
@@ -380,8 +371,49 @@ label {
 
 .userDrawing {
   background-color: white;
+  border: 2px solid #202023;
+  position: relative;
+}
+
+/* .userDrawing::after {
+  content: '';
+  background-color: #f7d3c0;
+  border: 2px solid;
+  display: block;
+  width: 279px;
+  height: 309px;
+  position: absolute;
+  z-index: -1;
+  top: 3px;
+  left: 3px;
+} */
+
+.userDrawing:before {
+  top: -3px;
+  left: -3px;
+  background-color: #fff;
+  z-index: 2;
+  transform: translate3d(0,0,0);
+  transition: transform .2s;
+  backface-visibility: hidden;
+}
+
+.userDrawing:after, .userDrawing:before {
+  position: absolute;
+  height: 100%;
+  border: 2px solid #202023;
+  width: 100%;
+  content: '';
+}
+
+.userDrawing:after {
+  top: 3px;
+  left: 3px;
+  background-color: #f7d3c0;
+  z-index: 1;
 }
 
 .userDrawing img {
-  width: 200px;
+  width: 100%;
+  z-index: 5;
 }

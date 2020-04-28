@@ -89,25 +89,22 @@ class Canvas extends Component {
         dbRef.push(drawingUrl);
     }
 
-    // pushToDb = () => {
-    //     // database reference
-
-    // }
-
     render() {
         console.log('i rendered');
         return (
-            <section>
-                <h2>draw it <span role="img" alt="" aria-label="">✏️</span></h2>
-                <div className="drawItContainer wrapper">
-                    <Buttons colorFn={this.changeColor} clearFn={this.clearCanvas} eraseFn={this.eraseCanvas} saveFn={this.saveDrawing}/>
-                    <div className="canvasAndHowTo">
-                        <h3>{this.getRandomWord(words)}</h3>
-                        <canvas ref="canvas" className="canvas" onMouseDown={this.startDrawing} onMouseMove={this.draw} onMouseUp={this.stopDrawing} width={450} height={500} />
-                        <HowToPlay />
+            <main>
+                <section>
+                    <h2>draw it <span role="img" alt="" aria-label="">✏️</span></h2>
+                    <div className="drawItContainer wrapper">
+                        <Buttons colorFn={this.changeColor} clearFn={this.clearCanvas} eraseFn={this.eraseCanvas} saveFn={this.saveDrawing}/>
+                        <div className="canvasAndHowTo">
+                            <h3>{this.getRandomWord(words)}</h3>
+                            <canvas ref="canvas" className="canvas" onMouseDown={this.startDrawing} onMouseMove={this.draw} onMouseUp={this.stopDrawing} width={450} height={500} />
+                            <HowToPlay />
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            </main>
         )
     }
 }
