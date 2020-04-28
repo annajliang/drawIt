@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Guess from './Guess'
 import Gallery from './Gallery'
 import App from "../App";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -14,11 +15,12 @@ class Navbar extends Component {
                             <Route path="/app" component={App} />
                         </li>
                         <li>
-                            <Link to="/gallery" className="home">Gallery</Link>
+                            <Link to="/gallery">Gallery</Link>
                             <Route path="/gallery" component={Gallery} />
                         </li>
                         <li>
-                            <Link to="/gallery" className="home">Guess</Link>
+                            <Link to="/guess">Guess</Link>
+                            <Route path="/guess" component={Guess} />
                         </li>
                     </ul>
                 </nav>
