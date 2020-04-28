@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Buttons from './Buttons';
-import Instructions from './Instructions';
+import HowToPlay from './HowToPlay';
+import words from '../data/words';
 
 class Canvas extends Component {
     constructor() {
@@ -23,9 +24,10 @@ class Canvas extends Component {
         // shape of the stroke essentially & making sure the line is continuous
 
         // size of the stroke
-        this.ctx.lineWidth = 10;
+        this.ctx.lineWidth = 7;
         this.ctx.lineJoin = 'round';
         this.ctx.lineCap = 'round';
+        console.log(this.ctx);
     }
 
     /*start drawing on mousedown*/
@@ -69,15 +71,26 @@ class Canvas extends Component {
     eraseCanvas = () => {
         console.log('i erased!');
         this.ctx.strokeStyle = "#fff";
+        // this.ctx.globalCompositeOperation = "destination-out";
+        // this.ctx.fill();
     }
+
+    getRandomArrayItem = (array) => {
+        return array[Math.floor(Math.random() * array.length)];
+    };
 
     render() {
         console.log('i rendered');
         return (
-            <section className="canvasContainer">
-                <canvas ref="canvas" className="canvas" onMouseDown={this.startDrawing} onMouseMove={this.draw} onMouseUp={this.stopDrawing} width={450} height={500} />
-                <Buttons colorFn={this.changeColor} clearFn={this.clearCanvas} eraseFn={this.eraseCanvas} />
-                <Instructions />
+            <section>
+                <div className="drawItContainer wrapper">
+                    <Buttons colorFn={this.changeColor} clearFn={this.clearCanvas} eraseFn={this.eraseCanvas} />
+                    <div className="canvasAndHowTo">
+                        <h2>{this.getRandomArrayItem(words)}</h2>
+                        <canvas ref="canvas" className="canvas" onMouseDown={this.startDrawing} onMouseMove={this.draw} onMouseUp={this.stopDrawing} width={450} height={500} />
+                        <HowToPlay />
+                    </div>
+                </div>
             </section>
         )
     }

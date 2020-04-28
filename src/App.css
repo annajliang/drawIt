@@ -22,7 +22,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 .wrapper {
   margin: 0 auto;
   max-width: 1280px;
-  width: 70%;
+  width: 85%;
 }
 
 /* FONTS  */
@@ -73,11 +73,13 @@ header {
   display: flex;
   padding-top: 0.6rem;
   justify-content: flex-end;
+  margin-right: 6rem;
 }
 
 .navbarLinks > *:not(:last-child) {
-  margin-right: 2rem;
+  margin-right: 4rem;
 }
+
 
 a {
   font-family: Karla-Bold;
@@ -138,25 +140,26 @@ h2 {
   text-shadow: 3px 2px #fff;
 }
 
-.canvasContainer {
+section {
   width: 100%;
   margin-top: 6rem;
   /* margin-bottom: 2rem; */
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
-  position: relative;
+  position: relative; */
 }
 
-.test {
+.drawItContainer {
   display: flex;
   justify-content: center;
 }
 
-.hi {
+.canvasAndHowTo {
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  /* flex-direction: column; */
 }
 
 canvas {
@@ -208,7 +211,6 @@ button:before {
 
 button:after, button:before {
   position: absolute;
-  /* display: block; */
   height: 100%;
   border: 2px solid #202023;
   width: 100%;
@@ -243,14 +245,14 @@ img {
   padding: 0;
   border-radius: 100%;
   height: 25px;
-  width: 23px;
+  width: 22px;
   border: none;
   outline: none;
   -webkit-apperance: none;
   vertical-align: middle;
   cursor: pointer;
   position: relative;
-  bottom: 2.7rem;
+  bottom: 2.65rem;
   left: 2rem;
   
 }
@@ -324,3 +326,34 @@ label {
   height: 50px;
   cursor: pointer;
 }
+
+@-moz-document url-prefix() {
+  label { 
+    top: 1rem;  
+  }
+
+  .colorSelection {
+    height: 19px;
+    width: 19px;
+    bottom: 1.65rem;
+  }
+}  
+
+.gallery {
+  background-color: red;
+}
+
+/* @media (max-width: 1220px) {
+  .test {
+    flex-direction: column-reverse;
+  }
+} */
+
+/* .test {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.buttonContainer {
+  display: flex;
+} */
