@@ -5,9 +5,7 @@ class EraseButton extends Component {
     render() {
         return(
             <button onClick={this.props.onClick}>
-                <span className="buttonText">Erase
-                <span className="divider"> | </span> 
-                <img src={erase} alt=''></img>
+                <span className="buttonText">Erase  |  <img src={erase} alt=''></img>
                 </span>
             </button>
         )

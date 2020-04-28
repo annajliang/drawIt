@@ -5,9 +5,7 @@ class ClearButton extends Component {
     render() {
         return(
             <button onClick={this.props.onClick}>
-                <span className="buttonText">Clear 
-                <span className="divider"> | </span> 
-                <img src={redo} alt=''></img></span>
+                <span className="buttonText">Clear  |  <img src={redo} alt=''></img></span>
             </button>
         )
     }

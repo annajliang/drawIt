@@ -6,7 +6,7 @@ class Navbar extends Component {
             <nav>
                 <ul className="navbarLinks">
                     <li>
-                        <a href="#">Home</a>
+                        <a href="#" className="home">Home</a>
                     </li>
                     <li>
                         <a href="#">Gallery</a>

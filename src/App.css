@@ -22,7 +22,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 .wrapper {
   margin: 0 auto;
   max-width: 1280px;
-  width: 75%;
+  width: 70%;
 }
 
 /* FONTS  */
@@ -30,6 +30,11 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 @font-face {
    font-family: Karla-Regular;
    src: url("./assets/fonts/Karla/Karla-Regular.ttf");
+}
+
+@font-face {
+   font-family: Karla-Bold;
+   src: url("./assets/fonts/Karla/Karla-Bold.ttf");
 }
 
 @font-face {
@@ -70,12 +75,20 @@ header {
   justify-content: flex-end;
 }
 
+.navbarLinks > *:not(:last-child) {
+  margin-right: 2rem;
+}
 
 a {
+  font-family: Karla-Bold;
   text-decoration: none;
   color: inherit;
   text-transform: uppercase;
-  margin-right: 2rem;
+}
+
+.home {
+  background-image: linear-gradient(rgba(255, 255, 255, 0) 60%, #fff 20%);
+  /* border-bottom: 2px solid black; */
 }
 
 p {
@@ -161,6 +174,7 @@ canvas {
 }
 
 button {
+  white-space: pre;
   margin-right: 1rem;
   margin-top: 1rem;
   position: relative;
@@ -235,6 +249,10 @@ img {
   -webkit-apperance: none;
   vertical-align: middle;
   cursor: pointer;
+  position: relative;
+  bottom: 2.7rem;
+  left: 2rem;
+  
 }
 
 .colorSelection::-webkit-color-swatch {
@@ -294,4 +312,15 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+label { 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  right: 0.7rem;
+  width: 160px;
+  height: 50px;
+  cursor: pointer;
 }

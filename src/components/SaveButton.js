@@ -5,9 +5,7 @@ class SaveButton extends Component {
     render() {
         return(
             <button>
-                <span className="buttonText">Save 
-                <span className="divider"> | </span> 
-                <img src={save} alt=''></img></span>
+                <span className="buttonText">Save  |  <img src={save} alt=''></img></span>
             </button>
         )
     }
