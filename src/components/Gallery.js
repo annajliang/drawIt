@@ -10,7 +10,10 @@ class Gallery extends Component {
 
     render() {
         return(
-            <div className="gallery">
+            <div className="galleryGrid">
+                <ul className="gallery">
+                    <li className="userDrawing"></li>
+                </ul>
                 <p>This is some dummy text.</p>
             </div>
         )

@@ -18,7 +18,7 @@ class Buttons extends Component {
                 <ColorButton onClick={this.props.colorFn} />
                 <EraseButton onClick={this.props.eraseFn} />
                 <ClearButton onClick={this.props.clearFn} />
-                <SaveButton />
+                <SaveButton onClick={this.props.saveFn}/>
             </div>
         )
     }

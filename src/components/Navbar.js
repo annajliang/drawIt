@@ -10,7 +10,7 @@ class Navbar extends Component {
             <>
                 <nav>
                     <h1>draw it</h1>
-                    <span class="divider">|</span>
+                    <span className="divider">|</span>
                     <ul className="navbarLinks">
                         <li>
                             <Link to="/" className="home">Home</Link>

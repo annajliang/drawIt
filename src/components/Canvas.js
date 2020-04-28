@@ -7,6 +7,10 @@ class Canvas extends Component {
     constructor() {
         super();
         this.isDrawing = false;
+        this.state = {
+            // stores the drawing as a base64 string
+            drawingStr: "",
+        }
     }
 
     //hey there's shit on the page, now we can get some data and do some shit now that the page is ready to go
@@ -79,13 +83,22 @@ class Canvas extends Component {
         return array[Math.floor(Math.random() * array.length)];
     };
 
+    saveDrawing = () => {
+        const canvas = this.refs.canvas;
+        const drawingUrl = canvas.toDataURL();
+        console.log(drawingUrl);
+        this.setState({
+            drawingStr: drawingUrl,
+        })
+    }
+
     render() {
         console.log('i rendered');
         return (
             <section>
                 <h2>draw it <span role="img" alt="" aria-label="">✏️</span></h2>
                 <div className="drawItContainer wrapper">
-                    <Buttons colorFn={this.changeColor} clearFn={this.clearCanvas} eraseFn={this.eraseCanvas} />
+                    <Buttons colorFn={this.changeColor} clearFn={this.clearCanvas} eraseFn={this.eraseCanvas} saveFn={this.saveDrawing}/>
                     <div className="canvasAndHowTo">
                         <h3>{this.getRandomArrayItem(words)}</h3>
                         <canvas ref="canvas" className="canvas" onMouseDown={this.startDrawing} onMouseMove={this.draw} onMouseUp={this.stopDrawing} width={450} height={500} />
