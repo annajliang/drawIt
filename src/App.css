@@ -355,7 +355,6 @@ label {
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 40px;
   margin-top: 50px;
-  background-color: red;
 }
 
 /* @media (max-width: 1220px) {
@@ -372,3 +371,13 @@ label {
 .buttonContainer {
   display: flex;
 } */
+
+.gallery p {
+  margin-top: 3rem;
+  text-transform: none;
+
+}
+
+.userDrawing {
+  background-color: white;
+}

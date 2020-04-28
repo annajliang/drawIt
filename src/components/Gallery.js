@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import firebase from "./../firebase";
 
 class Gallery extends Component {
     constructor() {
@@ -10,11 +11,11 @@ class Gallery extends Component {
 
     render() {
         return(
-            <div className="galleryGrid">
-                <ul className="gallery">
-                    <li className="userDrawing"></li>
+            <div className="gallery">
+                <p>A collection of drawings done by other users around the globe! Can you guess the correct word?</p>
+                <ul className="galleryGrid">
+                    <li className="userDrawing">TEST</li>
                 </ul>
-                <p>This is some dummy text.</p>
             </div>
         )
     }

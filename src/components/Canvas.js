@@ -7,25 +7,21 @@ class Canvas extends Component {
     constructor() {
         super();
         this.isDrawing = false;
-        this.state = {
-            // stores the drawing as a base64 string
-            drawingStr: "",
-        }
     }
 
-    //hey there's shit on the page, now we can get some data and do some shit now that the page is ready to go
+    //hey there's things on the page nos, now we can get some data and do some shit now that the page is ready to go
     //only runs once after the render
     componentDidMount() {
         console.log('i mounted');
         //finding the canvas element and saving it to a variable
         const canvas = this.refs.canvas;
-        //creating a drawing object for our canvas and saving it to a variable
-        //this drawing object is what we’ll actually be drawing on
+        //creating a drawing object for canvas and saving it to a variable
+        //this is what we’ll actually be drawing on
         this.ctx = canvas.getContext("2d");
 
         //color of stroke
         this.ctx.strokeStyle = "#000";
-        // shape of the stroke essentially & making sure the line is continuous
+        // shape of the stroke, making sure the line is continuous
 
         // size of the stroke
         this.ctx.lineWidth = 7;
@@ -34,7 +30,7 @@ class Canvas extends Component {
         console.log(this.ctx);
     }
 
-    /*start drawing on mousedown*/
+    //start drawing on mousedown
     // MY render is not depending on the state 
     // whole point of setState is to TRIGGER A RENDER WITH NEW VALUES OF STATE!!!!
     // MY RENDER HAS NO STATE IN IT!!
@@ -55,7 +51,7 @@ class Canvas extends Component {
         }
     }
 
-    /*on mouseclick release - stop drawing*/
+    //on mouseclick release - stop drawing
     stopDrawing = () => {
         this.isDrawing = false;
         this.ctx.beginPath();
@@ -79,17 +75,15 @@ class Canvas extends Component {
         // this.ctx.fill();
     }
 
-    getRandomArrayItem = (array) => {
+    getRandomWord = (array) => {
         return array[Math.floor(Math.random() * array.length)];
     };
 
     saveDrawing = () => {
         const canvas = this.refs.canvas;
+        // save canvas image as data url (png format by default)
         const drawingUrl = canvas.toDataURL();
         console.log(drawingUrl);
-        this.setState({
-            drawingStr: drawingUrl,
-        })
     }
 
     render() {
@@ -100,7 +94,7 @@ class Canvas extends Component {
                 <div className="drawItContainer wrapper">
                     <Buttons colorFn={this.changeColor} clearFn={this.clearCanvas} eraseFn={this.eraseCanvas} saveFn={this.saveDrawing}/>
                     <div className="canvasAndHowTo">
-                        <h3>{this.getRandomArrayItem(words)}</h3>
+                        <h3>{this.getRandomWord(words)}</h3>
                         <canvas ref="canvas" className="canvas" onMouseDown={this.startDrawing} onMouseMove={this.draw} onMouseUp={this.stopDrawing} width={450} height={500} />
                         <HowToPlay />
                     </div>
