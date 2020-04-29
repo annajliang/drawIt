@@ -8,6 +8,9 @@ class Canvas extends Component {
     constructor() {
         super();
         this.isDrawing = false;
+        this.state = {
+            secretWord: ""
+        }
     }
 
     //hey there's things on the page nos, now we can get some data and do some shit now that the page is ready to go
@@ -29,6 +32,9 @@ class Canvas extends Component {
         this.ctx.lineJoin = 'round';
         this.ctx.lineCap = 'round';
         console.log(this.ctx);
+        this.setState({
+            secretWord: this.getRandomWord(words)
+        })
     }
 
     //start drawing on mousedown
@@ -84,11 +90,15 @@ class Canvas extends Component {
         const canvas = this.refs.canvas;
         // save canvas image as data url (png format by default)
         const drawingUrl = canvas.toDataURL();
-        console.log(drawingUrl);
+        // console.log(drawingUrl);
+        const secretWord = this.state.secretWord;
+        console.log('secret word', secretWord);
         const dbRef = firebase.database().ref();
-        dbRef.push(drawingUrl);
+        dbRef.push({ drawingUrl, secretWord });
     }
 
+    // any functions called here will be called MULITPLE TIMES!!!
+    // do not put your random function here, stupid!!
     render() {
         console.log('i rendered');
         return (
@@ -98,7 +108,7 @@ class Canvas extends Component {
                     <div className="drawItContainer wrapper">
                         <Buttons colorFn={this.changeColor} clearFn={this.clearCanvas} eraseFn={this.eraseCanvas} saveFn={this.saveDrawing}/>
                         <div className="canvasAndHowTo">
-                            <h3>{this.getRandomWord(words)}</h3>
+                            <h3>{this.state.secretWord}</h3>
                             <canvas ref="canvas" className="canvas" onMouseDown={this.startDrawing} onMouseMove={this.draw} onMouseUp={this.stopDrawing} width={450} height={500} />
                             <HowToPlay />
                         </div>

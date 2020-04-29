@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import firebase from "./../firebase";
+import { Link } from "react-router-dom";
+import firebase from "../firebase";
 
 class Gallery extends Component {
     constructor() {
         super();
         this.state = {
-            drawings: []
+            drawings: [],
         }
     }
 
@@ -19,17 +20,17 @@ class Gallery extends Component {
             const drawingsArray = [];
 
             for (let key in dbData) {
-                drawingsArray.push(dbData[key]);
+                drawingsArray.push({ drawingUrl: dbData[key], drawingId: key });
             }
 
             this.setState({
                 drawings: drawingsArray,
             })
         })
-
     }
 
     render() {
+        console.log(this.state.drawings);
         return(
             <section className="gallery">
                 <div className="wrapper">
@@ -40,7 +41,9 @@ class Gallery extends Component {
                                 return (
                                   <li className="userDrawing">
                                     <span className="buttonText">
-                                      <img src={drawing} alt="" key={i} />
+                                      <Link to={`/guess/${drawing.drawingId}`}>
+                                        <img src={drawing.drawingUrl} alt="" key={i} />
+                                      </Link>
                                     </span>
                                   </li>
                                 );

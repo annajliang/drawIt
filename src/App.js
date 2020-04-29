@@ -18,7 +18,7 @@ class App extends Component {
             <Route exact path="/" component={Canvas} />
           {/* </main> */}
             <Route path="/gallery" component={Gallery} />
-            <Route path="/guess" component={Guess} />
+            <Route path="/guess/:imgId" component={Guess} />
           <Footer />
         </div>
       </Router>
