@@ -369,26 +369,13 @@ label {
 
 }
 
-.userDrawing {
+.userDrawing, .guessDrawing {
   background-color: white;
   border: 2px solid #202023;
   position: relative;
 }
 
-/* .userDrawing::after {
-  content: '';
-  background-color: #f7d3c0;
-  border: 2px solid;
-  display: block;
-  width: 279px;
-  height: 309px;
-  position: absolute;
-  z-index: -1;
-  top: 3px;
-  left: 3px;
-} */
-
-.userDrawing:before {
+.userDrawing:before, .guessDrawing:before {
   top: -3px;
   left: -3px;
   background-color: #fff;
@@ -398,7 +385,8 @@ label {
   backface-visibility: hidden;
 }
 
-.userDrawing:after, .userDrawing:before {
+.userDrawing:after, .userDrawing:before,
+.guessDrawing:after, .guessDrawing:before {
   position: absolute;
   height: 100%;
   border: 2px solid #202023;
@@ -406,7 +394,7 @@ label {
   content: '';
 }
 
-.userDrawing:after {
+.userDrawing:after, .guessDrawing:after {
   top: 3px;
   left: 3px;
   background-color: #f7d3c0;
@@ -416,4 +404,28 @@ label {
 .userDrawing img {
   width: 100%;
   z-index: 5;
+}
+
+.guessSection {
+  margin: 3rem 0;
+}
+
+.guessDrawing img {
+  width: 400px;
+  height: 400px;
+}
+
+.guessContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.guessContainer input {
+  margin-top: 2rem;
+}
+
+.guessContainer p {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
 }

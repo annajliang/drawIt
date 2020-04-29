@@ -14,12 +14,16 @@ class Guess extends Component {
 
         dbRef.on('value', (snapshot) => {
             const dbData = snapshot.val();
-            console.log(dbData);
+            console.log("DATA", dbData);
 
             const drawingsArray = [];
 
             for (let key in dbData) {
-                drawingsArray.push({ drawingUrl: dbData[key], drawingId: key });
+              drawingsArray.push({
+                drawingWord: dbData[key].drawingWord,
+                drawingUrl: dbData[key].drawingUrl,
+                drawingId: key,
+              });
             }
 
             this.setState({
@@ -29,21 +33,34 @@ class Guess extends Component {
     }
 
     render() {
-        // console.log(this.state.drawings);
+        console.log('props', this.props);
+        console.log('state', this.state.drawings);
 
             if (this.state.drawings.length === 0) {
                 return (
-                    <div>hjhhljlj</div>
+                    <div></div>
                 )
             } else {
-                 const drawingShit = this.state.drawings.filter((currentDrawing) => {
+                 const matchingDrawing = this.state.drawings.filter((currentDrawing) => {
                     return currentDrawing.drawingId === this.props.match.params.imgId;
                 });
                 return (
-                  <div className="guess">
-                    <p>This is some dummy text.</p>
-                    <img src={drawingShit[0].drawingUrl} alt="" />
-                  </div>
+                  <section className="guessSection">
+                    <div className="wrapper">
+                      <div className="guessContainer">
+                        <p>Please type your guess into the form below.</p>
+                        <div className="guessDrawing">
+                          <span className="buttonText">
+                            <img src={matchingDrawing[0].drawingUrl} alt="" />
+                          </span>
+                        </div>
+                        <form action="submit">
+                          <input type="text" />
+                          <input type="submit" />
+                        </form>
+                      </div>
+                    </div>
+                  </section>
                 );
             }
     }

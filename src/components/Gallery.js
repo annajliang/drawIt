@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import Guess from "./Guess";
 import firebase from "../firebase";
 
 class Gallery extends Component {
@@ -15,12 +16,16 @@ class Gallery extends Component {
 
         dbRef.on('value', (snapshot) => {
             const dbData = snapshot.val();
-            console.log(dbData);
+            console.log("DATA", dbData);
 
             const drawingsArray = [];
 
             for (let key in dbData) {
-                drawingsArray.push({ drawingUrl: dbData[key], drawingId: key });
+              drawingsArray.push({
+                drawingWord: dbData[key].drawingWord,
+                drawingUrl: dbData[key].drawingUrl,
+                drawingId: key,
+              });
             }
 
             this.setState({

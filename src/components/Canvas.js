@@ -9,7 +9,7 @@ class Canvas extends Component {
         super();
         this.isDrawing = false;
         this.state = {
-            secretWord: ""
+            drawingWord: ""
         }
     }
 
@@ -33,7 +33,7 @@ class Canvas extends Component {
         this.ctx.lineCap = 'round';
         console.log(this.ctx);
         this.setState({
-            secretWord: this.getRandomWord(words)
+            drawingWord: this.getRandomWord(words)
         })
     }
 
@@ -91,10 +91,11 @@ class Canvas extends Component {
         // save canvas image as data url (png format by default)
         const drawingUrl = canvas.toDataURL();
         // console.log(drawingUrl);
-        const secretWord = this.state.secretWord;
-        console.log('secret word', secretWord);
+        const drawingWord = this.state.drawingWord;
+        console.log('secret word', drawingWord);
         const dbRef = firebase.database().ref();
-        dbRef.push({ drawingUrl, secretWord });
+        // dbRef.push({ drawingUrl, drawingWord });
+        dbRef.push({ drawingUrl, drawingWord });
     }
 
     // any functions called here will be called MULITPLE TIMES!!!
@@ -108,7 +109,7 @@ class Canvas extends Component {
                     <div className="drawItContainer wrapper">
                         <Buttons colorFn={this.changeColor} clearFn={this.clearCanvas} eraseFn={this.eraseCanvas} saveFn={this.saveDrawing}/>
                         <div className="canvasAndHowTo">
-                            <h3>{this.state.secretWord}</h3>
+                            <h3>{this.state.drawingWord}</h3>
                             <canvas ref="canvas" className="canvas" onMouseDown={this.startDrawing} onMouseMove={this.draw} onMouseUp={this.stopDrawing} width={450} height={500} />
                             <HowToPlay />
                         </div>
