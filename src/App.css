@@ -60,7 +60,7 @@ body {
     font-family: Karla-Regular;
     color: #333333;
     background-image: url("./assets/bg.jpg");
-    background-size: cover;
+    background-size: cover center;
 }
 
 header {
@@ -92,7 +92,6 @@ a {
 
 .home {
   background-image: linear-gradient(rgba(255, 255, 255, 0) 60%, #fff 20%);
-  /* border-bottom: 2px solid black; */
 }
 
 h1 {
@@ -189,7 +188,6 @@ canvas {
   margin-top: 1rem;
   position: relative;
   display: inline-block;
-  /* padding: 7px 39px; */
   width: 150px;
   height: 50px;
   outline: 0;
@@ -345,11 +343,6 @@ label {
     bottom: 1.65rem;
   }
 }  
-
-/* .gallery {
-  display: flex;
-
-} */
 
 .galleryGrid {
   display: grid;
