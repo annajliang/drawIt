@@ -183,7 +183,7 @@ canvas {
     background-color: white;
 }
 
-.canvasButton {
+.canvasButton, .guessButton {
   white-space: pre;
   margin-right: 1rem;
   margin-top: 1rem;
@@ -435,10 +435,27 @@ label {
   text-transform: lowercase !important;
 }
 
-.swal2-styled {
+form {
+  display: flex;
+  align-items: flex-end;
+}
+
+.guessInput {
+  height: 40px;
+  width: 300px;
+  border: 2px dashed black;
+  width: calc(70% - 20px);
+  margin-right: 10px;
+}
+
+.guessButton {
+  width: calc(30% - 10px);
+  margin-left: 5px;
+}
+
+.swal2-styled, .guessButton {
   background-color: #f7d3c0 !important;
   padding: 0.55rem 3rem !important;
-  /* color: red !important; */
   border-radius: 0 !important;
   border: 3px solid white !important;
   outline: 3px solid #f7d3c0 !important;

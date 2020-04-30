@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import firebase from "../firebase";
+import Swal from "sweetalert2";
 
 class Guess extends Component {
     constructor() {
@@ -36,8 +37,16 @@ class Guess extends Component {
         const lowercaseUserInput = this.state.userInput.toLowerCase();
         if (lowercaseUserInput === this.state.correctGuess) {
             console.log('that is the right guess!')
+            Swal.fire({
+              title: "Correct!",
+              text: "You are a guessing master. Great job!",
+            });
         } else {
             console.log('whoops, that guess is wrong! try again!')
+            Swal.fire({
+              title: "Wrong!",
+              text: "Sorry that was the incorrect answer. Please guess again.",
+            });
         }
     }
 
@@ -99,8 +108,8 @@ class Guess extends Component {
                           </span>
                         </div>
                         <form action="submit" onSubmit={this.handleClick}>
-                          <input type="text" value={this.state.userInput} onChange={this.handleUserInput}/>
-                          <input type="submit" />
+                          <input type="text" value={this.state.userInput} onChange={this.handleUserInput} className="guessInput"/>
+                          <button type="submit" className="guessButton">Submit</button>
                         </form>
                       </div>
                     </div>
