@@ -125,6 +125,8 @@ class Canvas extends Component {
     }
 
     //using .getImageData() to find "colored" pixels (non-zero values)
+
+    //CREDIT THIS CODE
     isCanvasBlank = (canvas) => {
         // const context = canvas.getContext('2d');
         const pixelBuffer = new Uint32Array(
@@ -151,7 +153,7 @@ class Canvas extends Component {
                             show={this.state.showModal}
                             title={this.state.modalHeader}
                             text={this.state.modalText}
-                            onConfirm={() => this.state.showModal}/>
+                            onConfirm={() => this.setState({ showModal: false })}/>
                         <div className="canvasAndHowTo">
                             <h3>{this.state.drawingWord}</h3>
                             <canvas ref="canvas" className="canvas" onMouseDown={this.startDrawing} onMouseMove={this.draw} onMouseUp={this.stopDrawing} width={450} height={500} />
