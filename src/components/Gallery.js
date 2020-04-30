@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import Guess from "./Guess";
 import firebase from "../firebase";
 
 class Gallery extends Component {
@@ -42,12 +41,14 @@ class Gallery extends Component {
                     <p>A collection of drawings done by other users around the globe! Can you guess the correct word?</p>
                     <ul className="galleryGrid">
                         {
+
+                            //SAVE IN VARIABLE AND USE .MAP(), DO NOT DO IT DIRECTLY TO STATE
                             this.state.drawings.map((drawing, i) => {
                                 return (
-                                  <li className="userDrawing">
+                                  <li className="userDrawing" key={drawing.drawingId}>
                                     <span className="buttonText">
                                       <Link to={`/guess/${drawing.drawingId}`}>
-                                        <img src={drawing.drawingUrl} alt="" key={i} />
+                                        <img src={drawing.drawingUrl} alt="" />
                                       </Link>
                                     </span>
                                   </li>

@@ -5,17 +5,18 @@ class Guess extends Component {
     constructor() {
         super();
         this.state = {
-            drawings: [],
+            userInput: "",
+            correctGuess: "",
         }
     }
 
     componentDidMount() {
         const dbRef = firebase.database().ref();
 
+        //ASYNC FUNCTION!!!! LIKE IN JQUERY AJAX CALL
+        //CALLBACKS HAPPEN WHEN THEY ARE READY //DONT KNOW WHEN IT WILL HAPPEN
         dbRef.on('value', (snapshot) => {
             const dbData = snapshot.val();
-            console.log("DATA", dbData);
-
             const drawingsArray = [];
 
             for (let key in dbData) {
@@ -25,25 +26,68 @@ class Guess extends Component {
                 drawingId: key,
               });
             }
-
-            this.setState({
-                drawings: drawingsArray,
-            })
+            
+            this.findMatchingWord(drawingsArray);
         })
     }
 
-    render() {
-        console.log('props', this.props);
-        console.log('state', this.state.drawings);
+    handleClick = (e) => {
+        e.preventDefault();
+        const lowercaseUserInput = this.state.userInput.toLowerCase();
+        if (lowercaseUserInput === this.state.correctGuess) {
+            console.log('that is the right guess!')
+        } else {
+            console.log('whoops, that guess is wrong! try again!')
+        }
+    }
 
-            if (this.state.drawings.length === 0) {
-                return (
-                    <div></div>
-                )
-            } else {
-                 const matchingDrawing = this.state.drawings.filter((currentDrawing) => {
-                    return currentDrawing.drawingId === this.props.match.params.imgId;
-                });
+     handleUserInput = (e) => {
+        this.setState({
+            userInput: e.target.value
+        })
+    }
+
+    // narrow down to only the drawing object that matches what the user clicks on
+    // filter through the drawing objected (nested in an array) to find the correct keyword
+    // store that keyword in state
+
+    //needs array of drawing info
+    
+
+    findMatchingWord = (drawingsArray) => {
+      const matchingDrawings = drawingsArray.filter((currentDrawing) => {
+        return currentDrawing.drawingId === this.props.match.params.imgId;
+    })
+
+    this.setState({
+      correctGuess: matchingDrawings[0].drawingWord,
+      drawingUrl: matchingDrawings[0].drawingUrl
+    })
+  }
+
+
+
+    render() {
+      
+        // console.log('props', this.props);
+        // console.log('state', this.state.drawings);
+        // console.log(this.state.correctGuess);
+
+            // if (this.state.drawings.length === 0) {
+            //     return (
+            //         <div></div>
+            //     )
+            // } else {
+            //      const matchingDrawing = this.state.drawings.filter((currentDrawing) => {
+            //         return currentDrawing.drawingId === this.props.match.params.imgId;
+            //     });
+
+
+              // console.log('user word', this.state.userInput)
+              // console.log('actual word', matchingDrawing[0].drawingWord)
+
+                
+              // console.log('matching', matchingDrawing);
                 return (
                   <section className="guessSection">
                     <div className="wrapper">
@@ -51,11 +95,11 @@ class Guess extends Component {
                         <p>Please type your guess into the form below.</p>
                         <div className="guessDrawing">
                           <span className="buttonText">
-                            <img src={matchingDrawing[0].drawingUrl} alt="" />
+                            <img src={this.state.drawingUrl} alt="" />
                           </span>
                         </div>
-                        <form action="submit">
-                          <input type="text" />
+                        <form action="submit" onSubmit={this.handleClick}>
+                          <input type="text" value={this.state.userInput} onChange={this.handleUserInput}/>
                           <input type="submit" />
                         </form>
                       </div>
@@ -64,8 +108,5 @@ class Guess extends Component {
                 );
             }
     }
-}
-
-// this.props.match.params.imgId
 
 export default Guess;
