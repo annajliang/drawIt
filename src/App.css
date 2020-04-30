@@ -59,8 +59,8 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 body {
     font-family: Karla-Regular;
     color: #333333;
-    background-image: url("./assets/bg.jpg");
-    background-size: cover center;
+    background-image: url("./assets/newbg1.png");
+    background-size: center;
 }
 
 header {
@@ -110,7 +110,9 @@ p {
   font-size: 1rem;
   text-shadow: 2px 2px #fff;
   letter-spacing: 0.5px;
-  text-transform: lowercase;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  /* text-transform: lowercase; */
   /* line-height: 1.2;
   font-size: 1.3rem; */
   /* background-color: rgba(255, 255, 255, 0.562); */
@@ -133,6 +135,17 @@ p {
   top: 3.4rem; */
   right: 7rem;
   margin-bottom: 1rem;
+}
+
+.guessItHeading, .seeItHeading {
+  font-family: Poppins;
+  font-size: 6rem;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: white;
+  text-shadow: 3px 3px #e6e6d8, 6px 6px #c6a39a;
+  background-image: linear-gradient(rgba(255, 255, 255, 0) 60%, #f7d3c0 20%);
+  display: inline-block;
+  margin-bottom: 2rem;
 }
 
 .testing {
@@ -182,7 +195,7 @@ canvas {
     background-color: white;
 }
 
-.canvasButton, .guessButton {
+.canvasButton {
   white-space: pre;
   margin-right: 1rem;
   margin-top: 1rem;
@@ -312,6 +325,11 @@ footer {
   background-color: #f7d3c0;
   margin-top: 5px;
   padding: 0.5rem 0rem;
+  text-transform: lowercase;
+}
+
+footer p {
+  font-size: 1rem;
 }
 
 main {
@@ -348,12 +366,16 @@ label {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   grid-gap: 40px;
-  margin: 40px 0;
+  margin-top: 40px;
   align-content: flex-start;
 }
 
+.gallery {
+  margin: 3rem 0;
+}
+
 .gallery p {
-  margin-top: 3rem;
+  /* margin-top: 3rem; */
   text-transform: none;
 
 }
@@ -410,13 +432,8 @@ label {
   align-items: center; 
 }
 
-.guessContainer input {
-  margin-top: 2rem;
-}
-
 .guessContainer p {
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
+  margin: 2rem 0;
 }
 
 .swal2-title {
@@ -434,26 +451,34 @@ form {
 }
 
 .guessInput {
+  font: inherit;
+  padding: 0 12px;
   height: 40px;
-  width: 300px;
+  width: 260px;
   border: 2px dashed black;
-  width: calc(70% - 20px);
   margin-right: 10px;
-}
-
-.guessButton {
-  width: calc(30% - 10px);
-  margin-left: 5px;
 }
 
 .swal2-styled, .guessButton {
   background-color: #f7d3c0 !important;
-  padding: 0.55rem 3rem !important;
   border-radius: 0 !important;
   border: 3px solid white !important;
   outline: 3px solid #f7d3c0 !important;
   letter-spacing: 0.5px;
   font-family: Poppins-SemiBold;
+}
+
+.swal2-styled {
+  padding: 0.55rem 3rem !important;
+}
+
+.guessButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: lowercase;
+  height: 40px;
+  padding: 0 2rem;
 }
 
 .swal2-popup .swal2-styled.swal2-confirm {

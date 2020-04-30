@@ -33,9 +33,10 @@ class Guess extends Component {
     }
 
     handleClick = (e) => {
-        e.preventDefault();
-        const lowercaseUserInput = this.state.userInput.toLowerCase();
-        if (lowercaseUserInput === this.state.correctGuess) {
+       e.preventDefault();
+      const alteredUserInput = this.state.userInput;
+      const alteredCorrectGuess = this.state.correctGuess;
+      if (alteredUserInput.toLowerCase().replace(/\s/g, '') === alteredCorrectGuess.replace(/\s/g, '')) {
             console.log('that is the right guess!')
             Swal.fire({
               title: "Correct!",
@@ -101,12 +102,13 @@ class Guess extends Component {
                   <section className="guessSection">
                     <div className="wrapper">
                       <div className="guessContainer">
-                        <p>Please type your guess into the form below.</p>
+                        <h2 className="guessItHeading">guess it <span role="img" alt="" aria-label="">🤔</span></h2>
                         <div className="guessDrawing">
                           <span className="buttonText">
                             <img src={this.state.drawingUrl} alt="" />
                           </span>
                         </div>
+                        <p>Type your guess in the input bar below.</p>
                         <form action="submit" onSubmit={this.handleClick}>
                           <input type="text" value={this.state.userInput} onChange={this.handleUserInput} className="guessInput"/>
                           <button type="submit" className="guessButton">Submit</button>

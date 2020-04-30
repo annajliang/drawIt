@@ -38,11 +38,14 @@ class Gallery extends Component {
         return(
             <section className="gallery">
                 <div className="wrapper">
-                    <p>A collection of drawings done by other users around the globe! Can you guess the correct word?</p>
+                    <h2 className="seeItHeading">see it <span role="img" alt="" aria-label="">👀</span></h2>
+                    <p>A collection of drawings done by other users around the globe!</p>
+                    <p>Marvel at their beauty or click the drawing to play along and try to guess what</p>
+                    <p>you think the user was trying to draw.</p>
                     <ul className="galleryGrid">
                         {
 
-                            //SAVE IN VARIABLE AND USE .MAP(), DO NOT DO IT DIRECTLY TO STATE
+                            //SAVE IN VARIABLE AND USE .MAP(), DO NOT DO IT DIRECTLY TO STATE??
                             this.state.drawings.map((drawing, i) => {
                                 return (
                                   <li className="userDrawing" key={drawing.drawingId}>
