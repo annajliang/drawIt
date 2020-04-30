@@ -86,6 +86,11 @@ class Canvas extends Component {
         return array[Math.floor(Math.random() * array.length)];
     };
 
+    //prevent user from saving empty canvas
+    //condition to check whether canvas if empty or not
+        //if empty, modal telling the user to draw something
+        //if contained, drawing gets stored to database and modal pops up thanking user
+
     saveDrawing = () => {
         const canvas = this.refs.canvas;
         // save canvas image as data url (png format by default)
@@ -95,7 +100,21 @@ class Canvas extends Component {
         console.log('secret word', drawingWord);
         const dbRef = firebase.database().ref();
         // dbRef.push({ drawingUrl, drawingWord });
-        dbRef.push({ drawingUrl, drawingWord });
+        if (this.isCanvasBlank(canvas)) {
+            console.log('draw something')
+        } else {
+            dbRef.push({ drawingUrl, drawingWord });
+            this.clearCanvas();
+        }
+    }
+
+    //ssing .getImageData() to find "colored" pixels (non-zero values)
+    isCanvasBlank = (canvas) => {
+        // const context = canvas.getContext('2d');
+        const pixelBuffer = new Uint32Array(
+            this.ctx.getImageData(0, 0, canvas.width, canvas.height).data.buffer
+        );
+        return !pixelBuffer.some(color => color !== 0)
     }
 
     // any functions called here will be called MULITPLE TIMES!!!
