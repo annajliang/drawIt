@@ -9,13 +9,20 @@ class ColorButton extends Component {
     }
 
     render() {
-        return(
-            <button onClick={this.props.onClick}>
-                <span className="buttonText"><label htmlFor="colorSelection">Color  |  </label>
-                <input name="colorSelection" id="colorSelection" type="color" className="colorSelection" onChange={this.getHexColor}/>
-                </span>
-            </button>   
-        )
+        return (
+          <button onClick={this.props.onClick} className="canvasButton">
+            <span className="buttonText">
+              <label htmlFor="colorSelection">Color  |  </label>
+              <input
+                name="colorSelection"
+                id="colorSelection"
+                type="color"
+                className="colorSelection"
+                onChange={this.getHexColor}
+              />
+            </span>
+          </button>
+        );
     }
 }
 

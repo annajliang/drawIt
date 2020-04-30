@@ -16,11 +16,13 @@ class SaveButton extends Component {
 
     render() {
         // console.log(firebase);
-        return(
-            <button onClick={this.props.onClick}>
-                <span className="buttonText">Save  |  <img src={save} alt=''></img></span>
-            </button>
-        )
+        return (
+          <button onClick={this.props.onClick} className="canvasButton">
+            <span className="buttonText">
+              Save  |  <img src={save} alt=""></img>
+            </span>
+          </button>
+        );
     }
 }
 

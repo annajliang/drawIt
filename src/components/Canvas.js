@@ -2,14 +2,18 @@ import React, { Component } from 'react';
 import Buttons from './Buttons';
 import HowToPlay from './HowToPlay';
 import words from '../data/words';
-import firebase from "./../firebase";
+import firebase from "../firebase";
+import SweetAlert from "sweetalert2-react";
 
 class Canvas extends Component {
     constructor() {
         super();
         this.isDrawing = false;
         this.state = {
-            drawingWord: ""
+            drawingWord: "",
+            showModal: false,
+            modalText: "",
+            modalHeader: ""
         }
     }
 
@@ -102,13 +106,25 @@ class Canvas extends Component {
         // dbRef.push({ drawingUrl, drawingWord });
         if (this.isCanvasBlank(canvas)) {
             console.log('draw something')
+
+            this.setState({
+                showModal: true,
+                modalText: "Please draw something before saving your work to the gallery.",
+                modalHeader: "Oops..."
+            })
         } else {
             dbRef.push({ drawingUrl, drawingWord });
             this.clearCanvas();
+
+            this.setState({
+                showModal: true,
+                modalText: "Your drawing has been saved to the gallery. Go check it out!",
+                modalHeader: "Success!"
+            })
         }
     }
 
-    //ssing .getImageData() to find "colored" pixels (non-zero values)
+    //using .getImageData() to find "colored" pixels (non-zero values)
     isCanvasBlank = (canvas) => {
         // const context = canvas.getContext('2d');
         const pixelBuffer = new Uint32Array(
@@ -124,9 +140,18 @@ class Canvas extends Component {
         return (
             <main>
                 <section>
-                    <h2>draw it <span role="img" alt="" aria-label="">✏️</span></h2>
+                    <h2 className="drawItHeading">draw it <span role="img" alt="" aria-label="">✏️</span></h2>
                     <div className="drawItContainer wrapper">
-                        <Buttons colorFn={this.changeColor} clearFn={this.clearCanvas} eraseFn={this.eraseCanvas} saveFn={this.saveDrawing}/>
+                        <Buttons 
+                            colorFn={this.changeColor} 
+                            clearFn={this.clearCanvas} 
+                            eraseFn={this.eraseCanvas} 
+                            saveFn={this.saveDrawing}/>
+                        <SweetAlert
+                            show={this.state.showModal}
+                            title={this.state.modalHeader}
+                            text={this.state.modalText}
+                            onConfirm={() => this.state.showModal}/>
                         <div className="canvasAndHowTo">
                             <h3>{this.state.drawingWord}</h3>
                             <canvas ref="canvas" className="canvas" onMouseDown={this.startDrawing} onMouseMove={this.draw} onMouseUp={this.stopDrawing} width={450} height={500} />
