@@ -221,7 +221,7 @@ canvas {
 }
 
 .canvasButton {
-  white-space: pre;
+  /* white-space: pre; */
   margin-right: 1rem;
   margin-top: 1rem;
   position: relative;

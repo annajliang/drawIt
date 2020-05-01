@@ -1,8 +1,8 @@
-import React from 'react';
-import ColorButton from './ColorButton';
-import EraseButton from './EraseButton';
-import ClearButton from './ClearButton';
-import SaveButton from './SaveButton';
+import React from "react";
+import ColorButton from "./ColorButton";
+import EraseButton from "./EraseButton";
+import ClearButton from "./ClearButton";
+import SaveButton from "./SaveButton";
 
 const Buttons = (props) => {
     return (
@@ -12,7 +12,7 @@ const Buttons = (props) => {
             <ClearButton onClick={props.clearFn} />
             <SaveButton onClick={props.saveFn} />
         </div>
-    )   
-}
+    );
+};
 
 export default Buttons;

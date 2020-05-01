@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 // import Guess from './Guess'
 // import Gallery from './Gallery'
@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 class Navbar extends Component {
     render() {
-        return(
+        return (
             <>
                 <nav>
                     <h1>draw it</h1>
@@ -27,7 +27,7 @@ class Navbar extends Component {
                     </ul>
                 </nav>
             </>
-        )
+        );
     }
 }
 
