@@ -13,7 +13,7 @@ class Navbar extends Component {
                     <span className="divider">|</span>
                     <ul className="navbarLinks">
                         <li>
-                            <Link to="/" className="home">Home</Link>
+                            <Link to="/">Home</Link>
                             {/* <span class="divider">|</span> */}
                         </li>
                         <li>

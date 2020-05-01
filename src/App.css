@@ -83,15 +83,40 @@ nav {
   margin-right: 4rem;
 }
 
+/* https://codepen.io/P233/pen/EaGAl */
 a {
   font-family: Karla-Bold;
-  text-decoration: none;
-  color: inherit;
   text-transform: uppercase;
+  display: inline-block;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  overflow: hidden;
+  position: relative;
+  color: inherit;
+  text-decoration: none;
 }
 
-.home {
+a:before, a:after {
+  content: '';
+  position: absolute;
+  transition: transform .5s ease;
+}
+
+a:before {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 10px;
   background-image: linear-gradient(rgba(255, 255, 255, 0) 60%, #fff 20%);
+  transform:  translateX(-100%);
+}
+
+a:hover:before {
+  transform:  translateX(0);
+}
+
+input:focus {
+  outline-color: #FD9F9F;
 }
 
 h1 {
@@ -375,6 +400,7 @@ label {
 }
 
 .gallery p {
+  font-family: Karla-Regular;
   /* margin-top: 3rem; */
   text-transform: none;
 
@@ -433,7 +459,8 @@ label {
 }
 
 .guessContainer p {
-  margin: 2rem 0;
+  margin: 2rem 0 1rem;
+  font-family: Karla-Regular;
 }
 
 .swal2-title {

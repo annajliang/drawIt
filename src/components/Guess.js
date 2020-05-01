@@ -36,7 +36,7 @@ class Guess extends Component {
        e.preventDefault();
       const alteredUserInput = this.state.userInput;
       const alteredCorrectGuess = this.state.correctGuess;
-      if (alteredUserInput.toLowerCase().replace(/\s/g, '') === alteredCorrectGuess.replace(/\s/g, '')) {
+      if (alteredUserInput.toLowerCase().replace(/\s/g, "") === alteredCorrectGuess.replace(/\s/g, "")) {
             console.log('that is the right guess!')
             Swal.fire({
               title: "Correct!",
