@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import words from './data/words';
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import ScrollToTop from './components/ScrollToTop';
 import Header from './components/Header';
 import Canvas from './components/Canvas';
 import Footer from './components/Footer';
@@ -13,12 +14,11 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
+          <ScrollToTop />
           <Header />
-          {/* <main> */}
-            <Route exact path="/" component={Canvas} />
-          {/* </main> */}
-            <Route path="/gallery" component={Gallery} />
-            <Route path="/guess/:imgId" component={Guess} />
+          <Route exact path="/" component={Canvas} />
+          <Route path="/gallery" component={Gallery} />
+          <Route path="/guess/:imgId" component={Guess} />
           <Footer />
         </div>
       </Router>

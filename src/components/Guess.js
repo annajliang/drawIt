@@ -102,13 +102,13 @@ class Guess extends Component {
                   <section className="guessSection">
                     <div className="wrapper">
                       <div className="guessContainer">
-                        <h2 className="guessItHeading">guess it <span role="img" alt="" aria-label="">🤔</span></h2>
+                        <h2 className="guessItHeading">Guess It <span role="img" alt="" aria-label="">🤔</span></h2>
                         <div className="guessDrawing">
                           <span className="buttonText">
                             <img src={this.state.drawingUrl} alt="" />
                           </span>
                         </div>
-                        <p>Type your guess in the input bar below.</p>
+                        <p>Type your guess into the input bar below.</p>
                         <form action="submit" onSubmit={this.handleClick}>
                           <input type="text" value={this.state.userInput} onChange={this.handleUserInput} className="guessInput"/>
                           <button type="submit" className="guessButton">Submit</button>

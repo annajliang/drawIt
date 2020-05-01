@@ -149,6 +149,7 @@ p {
 
 .drawItHeading {
   font-family: Poppins;
+  text-transform: lowercase;
   font-size: 6rem;
   -webkit-text-stroke-width: 3px;
   -webkit-text-stroke-color: white;
@@ -163,6 +164,7 @@ p {
 }
 
 .guessItHeading, .seeItHeading {
+  text-transform: lowercase;
   font-family: Poppins;
   font-size: 6rem;
   -webkit-text-stroke-width: 3px;

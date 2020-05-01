@@ -9,7 +9,7 @@ class Navbar extends Component {
         return (
             <>
                 <nav>
-                    <h1>draw it</h1>
+                    <h1>Draw It</h1>
                     <span className="divider">|</span>
                     <ul className="navbarLinks">
                         <li>

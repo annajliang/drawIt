@@ -142,7 +142,7 @@ class Canvas extends Component {
         return (
             <main>
                 <section>
-                    <h2 className="drawItHeading">draw it <span role="img" alt="" aria-label="">✏️</span></h2>
+                    <h2 className="drawItHeading">Draw It <span role="img" alt="" aria-label="">✏️</span></h2>
                     <div className="drawItContainer wrapper">
                         <Buttons 
                             colorFn={this.changeColor} 
