@@ -1,29 +1,14 @@
-import React, { Component } from 'react';
-// import firebase from "./../firebase";
+import React from 'react';
 import save from '../assets/nounSave.svg';
 
-// get the drawingURL from the parent Canvas component as a prop
-// push the drawingURL into the database
-// shows a confirmation that the drawing was posted
-
-class SaveButton extends Component {
-
-    // pushToDb = () => {
-    //     // database reference
-    //     const dbRef = firebase.database().ref();
-
-    // }
-
-    render() {
-        // console.log(firebase);
-        return (
-          <button onClick={this.props.onClick} className="canvasButton">
-            <span className="buttonText">
-              Save  |  <img src={save} alt=""></img>
-            </span>
-          </button>
-        );
-    }
+const SaveButton = (props) => {
+  return (
+    <button onClick={props.onClick} className="canvasButton">
+      <span className="buttonText">
+        Save  |  <img src={save} alt=""></img>
+      </span>
+    </button>
+  );
 }
 
 export default SaveButton;

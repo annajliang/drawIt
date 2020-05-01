@@ -21,7 +21,7 @@ class Navbar extends Component {
                             {/* <span class="divider">|</span> */}
                         </li>
                         <li>
-                            <Link to="/guess">Guess</Link>
+                            <Link to="/guess/-M636QQbPkJ7ezU310H-">Guess</Link>
                             {/* <span class="divider">|</span> */}
                         </li>
                     </ul>
