@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import firebase from "../firebase";
 import Swal from "sweetalert2";
 
 class Guess extends Component {
@@ -8,28 +7,22 @@ class Guess extends Component {
         this.state = {
             userInput: "",
             correctGuess: "",
+            idArray: [],
         }
     }
 
     componentDidMount() {
-        const dbRef = firebase.database().ref();
+      this.findMatchingWord(this.props.drawings);
+    }
 
-        //ASYNC FUNCTION!!!! LIKE IN JQUERY AJAX CALL
-        //CALLBACKS HAPPEN WHEN THEY ARE READY //DONT KNOW WHEN IT WILL HAPPEN
-        dbRef.on('value', (snapshot) => {
-            const dbData = snapshot.val();
-            const drawingsArray = [];
+    getAllIds = (drawingsArray) => {
+      const ids = drawingsArray.map((singleObj) => {
+        return singleObj.drawingId;
+      })
 
-            for (let key in dbData) {
-              drawingsArray.push({
-                drawingWord: dbData[key].drawingWord,
-                drawingUrl: dbData[key].drawingUrl,
-                drawingId: key,
-              });
-            }
-            
-            this.findMatchingWord(drawingsArray);
-        })
+      this.setState({
+        idArray: ids
+      })
     }
 
     handleClick = (e) => {
@@ -69,19 +62,21 @@ class Guess extends Component {
         return currentDrawing.drawingId === this.props.match.params.imgId;
     })
 
-    this.setState({
-      correctGuess: matchingDrawings[0].drawingWord,
-      drawingUrl: matchingDrawings[0].drawingUrl
-    })
+    if (matchingDrawings.length > 0) {
+      this.setState({
+        correctGuess: matchingDrawings[0].drawingWord,
+        drawingUrl: matchingDrawings[0].drawingUrl
+      })
+    }
   }
 
 
 
     render() {
-      
+      console.log('props', this.props.drawings);
         // console.log('props', this.props);
         // console.log('state', this.state.drawings);
-        // console.log(this.state.correctGuess);
+        // console.log('id', this.state.idArray);
 
             // if (this.state.drawings.length === 0) {
             //     return (
