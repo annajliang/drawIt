@@ -9,6 +9,7 @@ class Canvas extends Component {
     constructor() {
         super();
         this.isDrawing = false;
+        this.canvas = React.createRef();
         this.state = {
             drawingWord: "",
             showModal: false,
@@ -22,10 +23,10 @@ class Canvas extends Component {
     componentDidMount() {
         console.log('i mounted');
         //finding the canvas element and saving it to a variable
-        const canvas = this.refs.canvas;
+        // const canvas = this.refs.canvas;
         //creating a drawing object for canvas and saving it to a variable
         //this is what we’ll actually be drawing on
-        this.ctx = canvas.getContext("2d");
+        this.ctx = this.canvas.current.getContext("2d");
 
         //color of stroke
         this.ctx.strokeStyle = "#000";
@@ -96,15 +97,15 @@ class Canvas extends Component {
         //if contained, drawing gets stored to database and modal pops up thanking user
 
     saveDrawing = () => {
-        const canvas = this.refs.canvas;
+        // const canvas = this.refs.canvas;
         // save canvas image as data url (png format by default)
-        const drawingUrl = canvas.toDataURL();
+        const drawingUrl = this.canvas.current.toDataURL();
         // console.log(drawingUrl);
         const drawingWord = this.state.drawingWord;
         console.log('secret word', drawingWord);
         const dbRef = firebase.database().ref();
         // dbRef.push({ drawingUrl, drawingWord });
-        if (this.isCanvasBlank(canvas)) {
+        if (this.isCanvasBlank(this.canvas.current)) {
             console.log('draw something')
 
             this.setState({
@@ -156,7 +157,7 @@ class Canvas extends Component {
                             onConfirm={() => this.setState({ showModal: false })}/>
                         <div className="canvasAndHowTo">
                             <h3>{this.state.drawingWord}</h3>
-                            <canvas ref="canvas" className="canvas" onMouseDown={this.startDrawing} onMouseMove={this.draw} onMouseUp={this.stopDrawing} width={450} height={500} />
+                            <canvas ref={this.canvas} className="canvas" onMouseDown={this.startDrawing} onMouseMove={this.draw} onMouseUp={this.stopDrawing} width={450} height={500} />
                             <HowToPlay />
                         </div>
                     </div>
