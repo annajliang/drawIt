@@ -537,19 +537,30 @@ form {
 }
 
 @media (max-width: 1165px) {
+  main {
+    height: 100%;
+    margin: 4rem 0;
+  }
+
   .drawItContainer {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
   }
 
+  /* .drawItContainer > *:not(:last-child) {
+    margin-bottom: 2rem;
+  } */
+
   .buttonContainer {
     display: flex;
     justify-content: center;
+    margin-bottom: 2rem;
   }
 
   .drawItHeading {
     position: static;
+    margin-bottom: 1.5rem;
   }
 }
