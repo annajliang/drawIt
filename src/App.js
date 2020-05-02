@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import words from './data/words';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import ScrollToTop from './components/ScrollToTop';
 import Header from './components/Header';
@@ -15,17 +14,20 @@ class App extends Component {
     super();
     this.state = {
       drawingsArray: [],
-      // allDrawingIds: [],
       randomDrawingObj: undefined
     }
   }
 
+
   componentDidMount() {
+    // saving reference to the entire database that was just made
     const dbRef = firebase.database().ref();
 
+    // listening for any change to the entire database
     dbRef.on('value', (snapshot) => {
+      // when data changes in the database, do the following:
+      // .val() will return the data in the form of an object from the database
       const dbData = snapshot.val();
-      // console.log("DATA", dbData);
 
       const drawingsArray = [];
 
