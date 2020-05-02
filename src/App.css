@@ -535,3 +535,21 @@ form {
   margin-top: 0.5rem !important;
   color: #333333 !important;
 }
+
+@media (max-width: 1165px) {
+  .drawItContainer {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .buttonContainer {
+    display: flex;
+    justify-content: center;
+  }
+
+  .drawItHeading {
+    position: static;
+  }
+}
