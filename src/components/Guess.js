@@ -73,7 +73,7 @@ class Guess extends Component {
 
 
     render() {
-      console.log('props', this.props.drawings);
+      // console.log('props', this.props.drawings);
         // console.log('props', this.props);
         // console.log('state', this.state.drawings);
         // console.log('id', this.state.idArray);

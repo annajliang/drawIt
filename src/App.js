@@ -14,7 +14,9 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      drawingsArray: []
+      drawingsArray: [],
+      // allDrawingIds: [],
+      randomDrawingObj: undefined
     }
   }
 
@@ -38,22 +40,72 @@ class App extends Component {
       this.setState({
         drawingsArray: drawingsArray,
       })
+      this.setInitialRandomDrawingObj(drawingsArray);
     })
   }
 
+  setInitialRandomDrawingObj = (drawingsArray) => {
+    // const ids = drawingsArray.map((drawingObj) => {
+    //   return drawingObj.drawingId;
+    // });
+
+    if (drawingsArray.length > 0) {
+      this.setState({
+        randomDrawingObj: this.getRandomArrayItem(this.state.drawingsArray),
+      });
+    }
+  };
+
+  getRandomArrayItem = (array) => {
+    console.log('click')
+    // this.setState({
+    //   randomIdStr: this.state.randomIdStr
+    // });
+    return array[Math.floor(Math.random() * array.length)];
+  };
+
+  // getRandomArrayItem = () => {
+  //   console.log('click')
+  //   this.setState({
+  //     randomIdStr: this.state.allDrawingIds[Math.floor(Math.random() * this.state.allDrawingIds.length)]
+  //   });
+  //   // return array[Math.floor(Math.random() * array.length)];
+  // };
+
+  //FOR CLICK HANDLER!!! RENAME!! ONLY FOR BUTTON
+  setRandomIdStrState = () => {
+    this.setState({
+      randomDrawingObj: this.getRandomArrayItem(this.state.drawingsArray)
+    });
+  }
+
+  // checkEmptyDrawingsArray = () => {
+  //   if (this.state.drawingsArray.length > 0) {
+
+  //   }
+  // }
+
+
   render() {
-    return (
-      <Router>
-        <div className="App">
-          <ScrollToTop />
-          <Header />
-          <Route exact path="/" component={Canvas} />
-          <Route path="/gallery" render={(props) => <Gallery {...props} drawings={this.state.drawingsArray}/>}/>
-          <Route path="/guess/:imgId" render={(props) => <Guess {...props } drawings={this.state.drawingsArray} />} />
-          <Footer />
-        </div>
-      </Router>
-    );
+    console.log('drawingArray from App.js', this.state.drawingsArray)
+    console.log("randomDrawingObj from App.js", this.state.randomDrawingObj)
+
+    if (this.state.drawingsArray.length > 0 && this.state.randomDrawingObj !== undefined) {
+      return (
+        <Router>
+          <div className="App">
+            <ScrollToTop />
+            <Header randomDrawingObj={this.state.randomDrawingObj} getRandomId={this.setRandomIdStrState}/>
+            <Route exact path="/" component={Canvas} />
+            <Route path="/gallery" render={(props) => <Gallery {...props} drawings={this.state.drawingsArray}/>}/>
+            <Route path="/guess/:imgId" render={(props) => <Guess {...props } drawings={this.state.drawingsArray} />} />
+            <Footer />
+          </div>
+        </Router>
+      );
+    } else {
+      return null
+    }
   }
 }
 

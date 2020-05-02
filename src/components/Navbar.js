@@ -5,7 +5,49 @@ import { Link } from "react-router-dom";
 // import App from "../App";
 
 class Navbar extends Component {
+    constructor() {
+        console.log('NAVBAR.JS i construct')
+        super();
+        this.state = {
+            // drawingsArrFromHeader: [],
+            idArray: []
+        }
+    }
+
+    componentDidMount() {
+        console.log('NAVBAR.JS i mounted');
+    }
+
+    // getAllIds = (drawingsArray) => {
+    //     const ids = drawingsArray.map((drawingObj) => {
+    //         return drawingObj;
+    //     });
+
+    //     if (ids.length > 0) {
+    //         this.setState({
+    //             idArray: ids,
+    //         });
+    //     }
+    // };
+
+    // deferredFunction = () => {
+    //     this.getRandomWord(this.props.drawings);
+    // }
+
+    //everytime user clicks on GUESS link
+    //the end of the url changes and a new ID is generated
+
+    
+    // getRandomWord = (array) => {
+    //     return array[Math.floor(Math.random() * array.length)];
+    // };
+    
+
     render() {
+        console.log('randomDrawingObj from navbar.js', this.props.randomDrawingObj)
+        // console.log('length', this.props.drawings.length)
+        console.log('NAVBAR.js i rendered')
+       
         return (
             <>
                 <nav>
@@ -21,7 +63,7 @@ class Navbar extends Component {
                             {/* <span class="divider">|</span> */}
                         </li>
                         <li>
-                            <Link to="/guess/-M636QQbPkJ7ezU310H-">Guess</Link>
+                            <Link to={`/guess/${this.props.randomDrawingObj.drawingId}`} onClick={this.props.onClick}>Guess</Link>
                             {/* <span class="divider">|</span> */}
                         </li>
                     </ul>
