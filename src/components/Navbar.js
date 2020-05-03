@@ -30,11 +30,6 @@ class Navbar extends Component {
         );
     }
 
-    handleClick = () => {
-        console.log('click');
-    }
-    
-
     render() {
         console.log('randomDrawingObj from navbar.js', this.props.randomDrawingObj)
         // console.log('length', this.props.drawings.length)

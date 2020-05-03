@@ -5,94 +5,98 @@ class Guess extends Component {
   constructor() {
     super();
     this.state = {
+      // inital states
       userInput: "",
       correctGuess: "",
-    }
+    };
   }
 
   componentDidMount() {
-    this.findMatchingWord(this.props.drawings);
-
-    console.log('from componentDidMouth', this.props.drawings)
+    this.setMatchingImgAndWord(this.props.drawings);
   }
 
-  // NOT CALLED ON INITIAL RENDER
-  // YOU GET NEW PROPS, YOU WANT TO DO SOMETHING WITH THOSE PROPS
+  // not called on inital render
+  // new props are received, need to compare the new props to the previous props
   componentDidUpdate(prevProps) {
+    // in this case, want to compare the previous props' imgId with the new props' imgId
     if (prevProps.match.params.imgId !== this.props.match.params.imgId) {
-      this.findMatchingWord(this.props.drawings);
+      // if they are not a match then call setMatchingImgAndWord
+      this.setMatchingImgAndWord(this.props.drawings);
     }
   }
 
-  handleClick = (e) => {
+  checkUserInput = (e) => {
     e.preventDefault();
+    // this.state.userInput and this.state.correctGuess are stored in new variables so that we may change their values
     const alteredUserInput = this.state.userInput;
     const alteredCorrectGuess = this.state.correctGuess;
+
+    // converts alteredUserInput to lowercase and disregards any empty spaces so that it can be compared to alteredCorrectGuess
     if (alteredUserInput.toLowerCase().replace(/\s/g, "") === alteredCorrectGuess.replace(/\s/g, "")) {
-      console.log('that is the right guess!')
+      // if the user's input matches the correct guess then an alert is fired informing the user they are correct
       Swal.fire({
         title: "Correct!",
         text: "You are a guessing master. Great job!",
       });
     } else {
-      console.log('whoops, that guess is wrong! try again!')
       Swal.fire({
+        // if the user's input does not match then an alert is fired informing the user they are incorrect
         title: "Wrong!",
         text: "Sorry that was the incorrect answer. Please guess again.",
       });
     }
-  }
+  };
 
-  handleUserInput = (e) => {
+  getUserInput = (e) => {
     this.setState({
-      userInput: e.target.value
-    })
-  }
+      userInput: e.target.value,
+    });
+  };
 
-  // narrow down to only the drawing object that matches what the user clicks on
-  // filter through the drawing objected (nested in an array) to find the correct keyword
-  // store that keyword in state
+  setMatchingImgAndWord = (drawingsArray) => {
+    // passes in the this.props.drawings array and filters through each object in the array to find an id that matches with the id of the drawing that is to be displayed on the page
+    const findCorrectDrawingObj = drawingsArray.filter((drawing) => {
+      return drawing.drawingId === this.props.match.params.imgId;
+    });
 
-  //needs array of drawing info
-
-
-  //findMatchingWord returns nothing
-  findMatchingWord = (drawingsArray) => {
-    //return returns from callback, does not return from findMatchingWord
-    const matchingDrawings = drawingsArray.filter((currentDrawing) => {
-      return currentDrawing.drawingId === this.props.match.params.imgId;
-    })
-
-    if (matchingDrawings.length > 0) {
+    // condition to make sure that we are actually getting something back 
+    if (findCorrectDrawingObj.length > 0) {
+      console.log('findMatchId', findCorrectDrawingObj)
+      //once the correct object has been found, set state to store the drawing's corresponding drawingWord and drawingUrl
       this.setState({
-        correctGuess: matchingDrawings[0].drawingWord,
-        drawingUrl: matchingDrawings[0].drawingUrl
-      })
+        correctGuess: findCorrectDrawingObj[0].drawingWord,
+        drawingUrl: findCorrectDrawingObj[0].drawingUrl,
+      });
     }
-    // console.log('drawingsArray from findMatchingWord', drawingsArray);
-    // console.log("matchingDrawings[0].drawingWord from findMatchingWord", matchingDrawings[0].drawingWord);
-    // console.log("matchingDrawings[0].drawingUrl from findMatchingWord", matchingDrawings[0].drawingUrl);
-    // console.log("matchingDrawings.length from findMatchingWord", matchingDrawings.length);
-  }
+  };
 
-  //Render happens after a state change and after it receive new PROPS!
+  // render happens after a state change and after it receive new props
   render() {
-    console.log("drawings array from Guess.js", this.props.drawings);
-    console.log("imgId from Guess.js", this.props.match.params.imgId);
+    // console.log("drawings array from Guess.js", this.props.drawings);
+    // console.log("imgId from Guess.js", this.props.match.params.imgId);
     return (
       <section className="guessSection">
         <div className="wrapper">
           <div className="guessContainer">
-            <h2 className="guessItHeading">Guess It <span role="img" alt="" aria-label="">🤔</span></h2>
+            <h2 className="guessItHeading">
+              Guess It <span aria-hidden="true">🤔</span>
+            </h2>
             <div className="guessDrawing">
               <span className="buttonText">
                 <img src={this.state.drawingUrl} alt="" />
               </span>
             </div>
             <p>Type your guess into the input bar below.</p>
-            <form action="submit" onSubmit={this.handleClick}>
-              <input type="text" value={this.state.userInput} onChange={this.handleUserInput} className="guessInput" />
-              <button type="submit" className="guessButton">Submit</button>
+            <form action="submit" onSubmit={this.checkUserInput}>
+              <input
+                type="text"
+                value={this.state.userInput}
+                onChange={this.getUserInput}
+                className="guessInput"
+              />
+              <button type="submit" className="guessButton">
+                Submit
+              </button>
             </form>
           </div>
         </div>
