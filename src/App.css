@@ -548,7 +548,7 @@ form {
   display: none;
 }
 
-@media (max-width: 1165px) {
+@media (max-width: 1210px) {
   main {
     height: 100%;
     margin: 4rem 0;
@@ -577,7 +577,7 @@ form {
   }
 }
 
-@media (max-width: 980px) {
+@media (max-width: 1018px) {
   nav {
     justify-content: center;
   }
@@ -663,12 +663,26 @@ form {
 }
 
 @media (max-width: 551px) {
-  h1 {
-    border-bottom: 0;
-    padding-bottom: 0;
+  .navbarLinks > *:not(:first-child):not(:last-child) {
+    margin-right: 2rem;
   }
 
-  .navbarLinks {
-    display: none;
+  .instructionsLink {
+    margin-left: 2rem;
+  }
+}
+
+@media (max-width: 525px) {
+  h3 {
+  width: 367px;
+}
+
+  .drawItHeading {
+    font-size: 5rem;
+    text-shadow: 2px 2px #e6e6d8, 5px 5px #c6a39a;
+  }
+
+  canvas {
+    width: 400px;
   }
 }

@@ -4,7 +4,6 @@ import ScrollToTop from './components/ScrollToTop';
 import Header from './components/Header';
 import Canvas from './components/Canvas';
 import Footer from './components/Footer';
-// import HowToPlayMobile from "./components/HowToPlayMobile";
 import Guess from './components/Guess'
 import Gallery from './components/Gallery'
 import firebase from "./firebase";
@@ -18,7 +17,6 @@ class App extends Component {
       randomDrawingObj: undefined
     }
   }
-
 
   componentDidMount() {
     // saving reference to the entire database that was just made
@@ -48,10 +46,6 @@ class App extends Component {
   }
 
   setInitialRandomDrawingObj = (drawingsArray) => {
-    // const ids = drawingsArray.map((drawingObj) => {
-    //   return drawingObj.drawingId;
-    // });
-
     if (drawingsArray.length > 0) {
       this.setState({
         randomDrawingObj: this.getRandomArrayItem(this.state.drawingsArray),
@@ -60,20 +54,8 @@ class App extends Component {
   };
 
   getRandomArrayItem = (array) => {
-    console.log('click')
-    // this.setState({
-    //   randomIdStr: this.state.randomIdStr
-    // });
     return array[Math.floor(Math.random() * array.length)];
   };
-
-  // getRandomArrayItem = () => {
-  //   console.log('click')
-  //   this.setState({
-  //     randomIdStr: this.state.allDrawingIds[Math.floor(Math.random() * this.state.allDrawingIds.length)]
-  //   });
-  //   // return array[Math.floor(Math.random() * array.length)];
-  // };
 
   //FOR CLICK HANDLER!!! RENAME!! ONLY FOR BUTTON
   setRandomIdStrState = () => {
@@ -81,13 +63,6 @@ class App extends Component {
       randomDrawingObj: this.getRandomArrayItem(this.state.drawingsArray)
     });
   }
-
-  // checkEmptyDrawingsArray = () => {
-  //   if (this.state.drawingsArray.length > 0) {
-
-  //   }
-  // }
-
 
   render() {
     console.log('drawingArray from App.js', this.state.drawingsArray)
@@ -100,7 +75,6 @@ class App extends Component {
             <ScrollToTop />
             <Header randomDrawingObj={this.state.randomDrawingObj} getRandomId={this.setRandomIdStrState}/>
             <Route exact path="/" component={Canvas} />
-            {/* <Route path="/howtoplaymobile" component={HowToPlayMobile} /> */}
             <Route path="/gallery" render={(props) => <Gallery {...props} drawings={this.state.drawingsArray}/>}/>
             <Route path="/guess/:imgId" render={(props) => <Guess {...props } drawings={this.state.drawingsArray} />} />
             <Footer />
