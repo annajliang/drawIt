@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import swal from "@sweetalert/with-react";
+import HowToPlay from "./HowToPlay";
+
 // import Guess from './Guess'
 // import Gallery from './Gallery'
 // import App from "../App";
@@ -41,6 +44,26 @@ class Navbar extends Component {
     // getRandomWord = (array) => {
     //     return array[Math.floor(Math.random() * array.length)];
     // };
+
+    sweetAlert = () => {
+        swal(
+          <ul class="howToPlayModal">
+            <h4>how to play</h4>
+            <li>Draw the word that appears at the very top of the canvas.</li>
+            <li>
+              Use the buttons near the canvas to erase, clear or change colors.
+            </li>
+            <li>
+              Once you're ready, click save to post it to the gallery and share
+              it with the entire world.
+            </li>
+            <li>
+              Click gallery to see what other users drew or click guess to get a
+              random drawing chosen for you.
+            </li>
+          </ul>
+        );
+    }
     
 
     render() {
@@ -57,6 +80,9 @@ class Navbar extends Component {
                         <li>
                             <Link to="/">Home</Link>
                             {/* <span class="divider">|</span> */}
+                        </li>
+                        <li>
+                            <Link to="/" className="instructionsLink" onClick={this.sweetAlert}>Instructions</Link>
                         </li>
                         <li>
                             <Link to="/gallery">Gallery</Link>

@@ -75,11 +75,20 @@ nav {
   justify-content: flex-end;
 }
 
+/* nav li {
+  display: flex;
+  justify-content: center;
+} */
+
 .navbarLinks {
   display: flex;
 }
 
-.navbarLinks > *:not(:last-child) {
+.instructionsLink {
+  display: none;
+}
+
+.navbarLinks > *:not(:first-child):not(:last-child) {
   margin-right: 4rem;
 }
 
@@ -209,7 +218,6 @@ section {
 .canvasAndHowTo {
   position: relative;
   display: flex;
-  flex-direction: row;
   /* flex-direction: column; */
 }
 
@@ -322,7 +330,7 @@ img {
   padding-top: 3rem;
 }
 
-.howToPlay li {
+.howToPlay li, .howToPlayModal li {
     font-size: 1.2rem;
     line-height: 1.95;
     text-align: left;
@@ -339,7 +347,7 @@ h4 {
   background-image: linear-gradient(rgba(255, 255, 255, 0) 60%, #f7d3c0 20%);
 }
 
-.howToPlay li::before {
+.howToPlay li::before, .howToPlayModal li::before {
   content: "\2022"; 
   color: black; /* Change the color */
   font-weight: bold; 
@@ -536,6 +544,10 @@ form {
   color: #333333 !important;
 }
 
+.swal-modal {
+  display: none;
+}
+
 @media (max-width: 1165px) {
   main {
     height: 100%;
@@ -562,5 +574,101 @@ form {
   .drawItHeading {
     position: static;
     margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 980px) {
+  nav {
+    justify-content: center;
+  }
+
+  .drawItContainer {
+    flex-direction: column-reverse;
+  }
+
+  .buttonContainer {
+    margin: 1rem 0 0;
+    flex-wrap: wrap;
+  }
+
+  .instructionsLink {
+    display: inline-block;
+    margin-left: 4rem;
+  }
+
+  .canvasAndHowTo {
+    flex-direction: column;
+  }
+
+  .howToPlay {
+    display: none;
+  }
+
+  .swal-modal {
+    display: inline-block;
+    background-image: url("./assets/linedpaper.jpg");
+    height: 30rem;
+    background-size: 59rem;
+  }
+
+  .howToPlayModal {
+    position: relative;
+    top: 1.5rem;
+  }
+
+  /* .howToPlayModal li {
+    text-align: left;
+    font-size: 1.2rem;
+  } */
+
+  .swal-button, .swal-footer {
+    display: none;
+  }
+
+  .howToPlayModal li {
+    font-size: 1.3rem;
+    line-height: 1.77;
+    text-align: left;
+    margin-left: 0.3rem;
+    /* padding: 0 0.5rem 0 2.8rem; */
+}
+}
+
+@media (max-width: 717px) {
+  header {
+  height: 100%;
+}
+
+  h1 {
+    border-bottom: 1.5px solid #FCF7F3;
+    padding-bottom: 0.6rem;
+    width: 100%;
+  }
+
+  nav {
+    flex-direction: column;
+    padding: 0.8rem 0;
+  }
+
+  .navbarLinks {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-top: 0.6rem;
+}
+  
+  .divider {
+    display: none;
+  }
+}
+
+@media (max-width: 551px) {
+  h1 {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .navbarLinks {
+    display: none;
   }
 }

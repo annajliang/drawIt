@@ -4,6 +4,7 @@ import ScrollToTop from './components/ScrollToTop';
 import Header from './components/Header';
 import Canvas from './components/Canvas';
 import Footer from './components/Footer';
+// import HowToPlayMobile from "./components/HowToPlayMobile";
 import Guess from './components/Guess'
 import Gallery from './components/Gallery'
 import firebase from "./firebase";
@@ -99,6 +100,7 @@ class App extends Component {
             <ScrollToTop />
             <Header randomDrawingObj={this.state.randomDrawingObj} getRandomId={this.setRandomIdStrState}/>
             <Route exact path="/" component={Canvas} />
+            {/* <Route path="/howtoplaymobile" component={HowToPlayMobile} /> */}
             <Route path="/gallery" render={(props) => <Gallery {...props} drawings={this.state.drawingsArray}/>}/>
             <Route path="/guess/:imgId" render={(props) => <Guess {...props } drawings={this.state.drawingsArray} />} />
             <Footer />
