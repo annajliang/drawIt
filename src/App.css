@@ -686,3 +686,79 @@ form {
     width: 400px;
   }
 }
+
+
+@media (max-width: 471px) {
+  h3 {
+  width: 315px;
+}
+
+  .drawItHeading {
+    font-size: 4.5rem;
+  }
+
+  canvas {
+    width: 350px;
+  }
+}
+
+@media (max-width: 440px) {
+.navbarLinks > *:not(:first-child):not(:last-child) {
+    margin-right: 1rem;
+  }
+
+  .instructionsLink {
+    margin-left: 1rem;
+  }
+}
+
+@media (max-width: 434px) {
+.swal-modal {
+    height: 35rem;
+  }
+}
+
+@media (max-width: 412px) {
+  h3 {
+  width: 285px;
+}
+
+  .drawItHeading {
+    font-size: 4rem;
+  }
+
+  canvas {
+    width: 320px;
+  }
+}
+
+@media (max-width: 400px) {
+.swal-modal {
+    height: 40rem;
+  }
+}
+
+@media (max-width: 374px) {
+  h3 {
+    width: 265px;
+  } 
+
+  canvas {
+    width: 300px;
+  }
+}
+
+@media (max-width: 350px) {
+  h3 {
+    width: 240px;
+  } 
+
+  .drawItHeading {
+    font-size: 3.5rem;
+    -webkit-text-stroke-width: 2px;
+  }
+
+  canvas {
+    width: 275px;
+  }
+}
