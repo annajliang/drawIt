@@ -458,8 +458,9 @@ label {
 }
 
 .guessDrawing img {
-  width: 400px;
+  /* width: 400px; */
   height: 400px;
+  width: 100%;
 }
 
 .guessContainer {
@@ -630,8 +631,7 @@ form {
     line-height: 1.77;
     text-align: left;
     margin-left: 0.3rem;
-    /* padding: 0 0.5rem 0 2.8rem; */
-}
+  }
 }
 
 @media (max-width: 717px) {
@@ -662,6 +662,12 @@ form {
   }
 }
 
+@media (max-width: 590px) {
+  .guessItHeading {
+    font-size: 5rem;
+  }
+}
+
 @media (max-width: 551px) {
   .navbarLinks > *:not(:first-child):not(:last-child) {
     margin-right: 2rem;
@@ -677,7 +683,7 @@ form {
   width: 367px;
 }
 
-  .drawItHeading {
+  .drawItHeading, .guessItHeading, .seeItHeading {
     font-size: 5rem;
     text-shadow: 2px 2px #e6e6d8, 5px 5px #c6a39a;
   }
@@ -687,18 +693,30 @@ form {
   }
 }
 
+@media (max-width: 491px) {
+  .guessItHeading {
+    font-size: 4.5rem;
+  }
+}
+
 
 @media (max-width: 471px) {
   h3 {
   width: 315px;
 }
 
-  .drawItHeading {
+  .drawItHeading, .seeItHeading {
     font-size: 4.5rem;
   }
 
   canvas {
     width: 350px;
+  }
+}
+
+@media (max-width: 442px) {
+  .guessItHeading {
+    font-size: 4rem;
   }
 }
 
@@ -716,6 +734,19 @@ form {
 .swal-modal {
     height: 35rem;
   }
+
+  .guessDrawing img {
+    height: 350px;
+  }
+
+  form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .guessInput {
+    margin: 0 0 1rem;
+  }
 }
 
 @media (max-width: 412px) {
@@ -723,7 +754,7 @@ form {
   width: 285px;
 }
 
-  .drawItHeading {
+  .drawItHeading, .seeItHeading {
     font-size: 4rem;
   }
 
@@ -738,6 +769,13 @@ form {
   }
 }
 
+@media (max-width: 393px) {
+  .guessItHeading {
+    font-size: 3.5rem;
+    -webkit-text-stroke-width: 2px;
+  }
+}
+
 @media (max-width: 374px) {
   h3 {
     width: 265px;
@@ -746,6 +784,10 @@ form {
   canvas {
     width: 300px;
   }
+
+  .guessDrawing img {
+    height: 300px;
+  }
 }
 
 @media (max-width: 350px) {
@@ -753,12 +795,33 @@ form {
     width: 240px;
   } 
 
-  .drawItHeading {
+  .drawItHeading, .seeItHeading {
     font-size: 3.5rem;
     -webkit-text-stroke-width: 2px;
   }
 
   canvas {
     width: 275px;
+  }
+
+   .swal-modal {
+    height: 40rem;
+  }
+
+  .howToPlayModal li {
+    font-size: 1.2rem;
+    line-height: 1.9;
+  }
+}
+
+@media (max-width: 330px) {
+   .swal-modal {
+    height: 42rem;
+  }
+}
+
+@media (max-width: 344px) {
+  .guessItHeading {
+    font-size: 3.2rem;
   }
 }
