@@ -5,7 +5,7 @@ import clear from "../assets/nounRedo.svg";
 const ClearButton = (props) => {
     return (
       // calls the clearCanvas function that lives in the parent component Canvas.js
-      <button onClick={props.onClick} className="canvasButton">
+      <button onClick={props.onClick} className="canvasButton" aria-label="clear canvas">
         <span className="showText">
           Clear<span aria-hidden="true">&ensp;|&ensp;</span>
           {/* clear by Mert Güler from the Noun Project */}
