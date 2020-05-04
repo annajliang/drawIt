@@ -8,6 +8,7 @@ const SaveButton = (props) => {
     <button onClick={props.onClick} className="canvasButton">
       <span className="showText">
         Save<span aria-hidden="true">&ensp;|&ensp;</span>
+        {/* Save by Kevin White from the Noun Project */}
         <img src={save} alt=""></img>
       </span>
     </button>

@@ -84,7 +84,7 @@ class Canvas extends Component {
         showModal: true,
         modalText:
           "Please pick another color. Do not be a troll and save a blank drawing.",
-        modalHeader: "troll alert!",
+        modalHeader: "Troll alert!",
       });
     }
   };

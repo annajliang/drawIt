@@ -8,6 +8,7 @@ const NextWordButton = (props) => {
       <button onClick={props.onClick} className="canvasButton">
         <span className="showText">
           Next<span aria-hidden="true">&ensp;|&ensp;</span>
+          {/* Next by Deemak Daksina from the Noun Project */}
           <img src={next} alt=""></img>
         </span>
       </button>

@@ -1,5 +1,5 @@
 import React from "react";
-import redo from "../assets/nounRedo.svg";
+import clear from "../assets/nounRedo.svg";
 
 // receive props from parent Buttons.js component (which Buttons.js receives from Canvas.js)
 const ClearButton = (props) => {
@@ -8,7 +8,8 @@ const ClearButton = (props) => {
       <button onClick={props.onClick} className="canvasButton">
         <span className="showText">
           Clear<span aria-hidden="true">&ensp;|&ensp;</span>
-          <img src={redo} alt=""></img>
+          {/* clear by Mert Güler from the Noun Project */}
+          <img src={clear} alt=""></img>
         </span>
       </button>
     );
