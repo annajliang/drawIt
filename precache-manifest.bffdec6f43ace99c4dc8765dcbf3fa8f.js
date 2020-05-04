@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5d4629143e81e5b923e15389cf34ab92",
+    "revision": "27798085128be702c026995a7547647b",
     "url": "/drawIt/index.html"
   },
   {
-    "revision": "3f83f5676a785e1326ee",
+    "revision": "2a3be62165364f73750f",
     "url": "/drawIt/static/css/main.deae8141.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/drawIt/static/js/2.842fe243.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3f83f5676a785e1326ee",
-    "url": "/drawIt/static/js/main.8f623416.chunk.js"
+    "revision": "2a3be62165364f73750f",
+    "url": "/drawIt/static/js/main.1903a480.chunk.js"
   },
   {
     "revision": "467812b9ab3bb7fcfe4f",
