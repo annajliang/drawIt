@@ -9,7 +9,7 @@ const ClearButton = (props) => {
         <span className="showText">
           Clear<span aria-hidden="true">&ensp;|&ensp;</span>
           {/* clear by Mert Güler from the Noun Project */}
-          <img src={clear} alt=""></img>
+          <img src={clear} alt="" className="clearImg"></img>
         </span>
       </button>
     );

@@ -9,7 +9,7 @@ const NextWordButton = (props) => {
         <span className="showText">
           Next<span aria-hidden="true">&ensp;|&ensp;</span>
           {/* Next by Deemak Daksina from the Noun Project */}
-          <img src={next} alt=""></img>
+          <img src={next} alt="" className="nextImg"></img>
         </span>
       </button>
     );
