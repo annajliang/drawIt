@@ -36,12 +36,14 @@ class Guess extends Component {
     if (alteredUserInput.toLowerCase().replace(/\s/g, "") === alteredCorrectGuess.replace(/\s/g, "")) {
       // if the user's input matches the correct guess then an alert is fired informing the user they are correct
       this.guessModal("Correct!", "You are a guessing master. Great job!");
+      // clears input after user clicks submit
       this.setState({
         userInput: ""
       })
     } else {
       // if the user's input does not match then an alert is fired informing the user they are incorrect
       this.guessModal("Wrong!", "Sorry that was the incorrect answer. Please guess again.");
+      // clears input after user clicks submit
       this.setState({
         userInput: "",
       });
@@ -50,7 +52,6 @@ class Guess extends Component {
 
   guessModal = (title, text) => {
     Swal.fire({
-      // if the user's input does not match then an alert is fired informing the user they are incorrect
       title: title,
       text: text,
     });
