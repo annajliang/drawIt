@@ -4,6 +4,7 @@ import HowToPlay from './HowToPlay';
 import words from '../data/words';
 import firebase from "../firebase";
 import SweetAlert from "sweetalert2-react";
+import forbiddenColors from '../data/forbiddenColors';
 
 // thank you Dev Ed @ youtube.com/channel/UClb90NQQcskPUGDIXsQEz5Q for your tutorial on HTML5 Canvas 
 
@@ -77,10 +78,10 @@ class Canvas extends Component {
   // function that allows user to change the default strokeStyle of black and instead choose a custom color
   // hexcolor that user has chosen is retrieved from ColorButton.js which is then passed from Buttons.js to Canvas.js
   changeColor = (selectedColor) => {
-    // user's color selection will not be stored if they pick white
-    if (selectedColor !== "#ffffff") {
+    // user's color selection will not be stored if they pick white or off-white colors
+    if (forbiddenColors.indexOf(selectedColor) === -1) {
       this.ctx.strokeStyle = selectedColor;
-    // prevents user from spamming database with blank drawings
+      // prevents user from spamming database with blank looking drawings
     } else {
       this.setState({
         showModal: true,
