@@ -82,7 +82,7 @@ class App extends Component {
           <div className="App">
             <ScrollToTop />
             <Header randomDrawingObj={this.state.randomDrawingObj} getRandomId={this.setRandomIdStr}/>
-            <Route exact path="/" component={Canvas} />
+            <Route path="/" component={Canvas} />
             <Route path="/gallery" render={(props) => <Gallery {...props} drawings={this.state.drawingsArray}/>}/>
             <Route path="/guess/:imgId" render={(props) => <Guess {...props } drawings={this.state.drawingsArray} />} />
             <Footer />
