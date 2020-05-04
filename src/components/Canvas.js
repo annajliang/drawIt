@@ -78,7 +78,7 @@ class Canvas extends Component {
   // hexcolor that user has chosen is retrieved from ColorButton.js which is then passed from Buttons.js to Canvas.js
   changeColor = (selectedColor) => {
     // user's color selection will not be stored if they pick white
-    if (selectedColor != "#ffffff") {
+    if (selectedColor !== "#ffffff") {
       this.ctx.strokeStyle = selectedColor;
     // prevents user from spamming database with blank drawings
     } else {
@@ -125,8 +125,7 @@ class Canvas extends Component {
       // set state to have the modal triggered and allow a re-render to occur
       this.setState({
         showModal: true,
-        modalText:
-          "Please draw something before saving your work to the gallery.",
+        modalText: "Please draw something before saving your work to the gallery.",
         modalHeader: "Oops...",
       });
     } else {
@@ -139,8 +138,7 @@ class Canvas extends Component {
       // modal will show user a success message
       this.setState({
         showModal: true,
-        modalText:
-          "Your drawing has been saved to the gallery. Go check it out!",
+        modalText: "Your drawing has been saved to the gallery. Go check it out!",
         modalHeader: "Success!",
       });
     }

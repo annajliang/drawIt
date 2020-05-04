@@ -11,6 +11,7 @@ class Guess extends Component {
     };
   }
 
+  // calls setMatchingImgAndWord to match the correct drawing word with the correct drawing image and then update state to trigger a re-render
   componentDidMount() {
     this.setMatchingImgAndWord(this.props.drawings);
   }
@@ -34,19 +35,28 @@ class Guess extends Component {
     // converts alteredUserInput to lowercase and disregards any empty spaces so that it can be compared to alteredCorrectGuess
     if (alteredUserInput.toLowerCase().replace(/\s/g, "") === alteredCorrectGuess.replace(/\s/g, "")) {
       // if the user's input matches the correct guess then an alert is fired informing the user they are correct
-      Swal.fire({
-        title: "Correct!",
-        text: "You are a guessing master. Great job!",
-      });
+      this.guessModal("Correct!", "You are a guessing master. Great job!");
+      this.setState({
+        userInput: ""
+      })
     } else {
-      Swal.fire({
-        // if the user's input does not match then an alert is fired informing the user they are incorrect
-        title: "Wrong!",
-        text: "Sorry that was the incorrect answer. Please guess again.",
+      // if the user's input does not match then an alert is fired informing the user they are incorrect
+      this.guessModal("Wrong!", "Sorry that was the incorrect answer. Please guess again.");
+      this.setState({
+        userInput: "",
       });
     }
   };
 
+  guessModal = (title, text) => {
+    Swal.fire({
+      // if the user's input does not match then an alert is fired informing the user they are incorrect
+      title: title,
+      text: text,
+    });
+  }
+
+  // gets what the user has typed from the input form
   getUserInput = (e) => {
     this.setState({
       userInput: e.target.value,
