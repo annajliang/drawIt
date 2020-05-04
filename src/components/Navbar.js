@@ -6,7 +6,7 @@ class Navbar extends Component {
     // instructionsModal only appears on smaller screen widths
     instructionsModal = () => {
         swal(
-          <ul class="howToPlayModal">
+          <ul className="howToPlayModal">
             <h4>How to play</h4>
             <li>Draw the word that appears at the very top of the canvas.</li>
             <li>
