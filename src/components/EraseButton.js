@@ -6,7 +6,7 @@ const EraseButton = (props) => {
   return (
     // calls the eraseCanvas function that lives in the parent component Canvas.js
     <button onClick={props.onClick} className="canvasButton">
-      <span className="buttonText">
+      <span className="showText">
         Erase<span aria-hidden="true">&ensp;|&ensp;</span>
         <img src={erase} alt=""></img>
       </span>

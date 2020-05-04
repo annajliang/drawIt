@@ -6,7 +6,7 @@ const SaveButton = (props) => {
   return (
     // calls the saveDrawing function that lives in the parent component Canvas.js
     <button onClick={props.onClick} className="canvasButton">
-      <span className="buttonText">
+      <span className="showText">
         Save<span aria-hidden="true">&ensp;|&ensp;</span>
         <img src={save} alt=""></img>
       </span>

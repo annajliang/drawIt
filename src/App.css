@@ -59,7 +59,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 body {
     font-family: Karla-Regular;
     color: #333333;
-    background-image: url("./assets/newbg1.png");
+    background-image: url("./assets/squigglyLineBg.png");
     background-size: center;
 }
 
@@ -270,7 +270,7 @@ canvas {
   z-index: 1;
 }
 
-.buttonText {
+.showText {
   position: relative;
   display: inline-block;
   z-index: 2;
@@ -313,7 +313,7 @@ img {
 }
 
 .howToPlay {
-  background-image: url("./assets/linedpaper.jpg");
+  background-image: url("./assets/linePaperBg.jpg");
   background-size: 60rem;
   margin-left: 1rem;
   width: 400px;
@@ -402,9 +402,7 @@ label {
 
 .gallery p {
   font-family: Karla-Regular;
-  /* margin-top: 3rem; */
   text-transform: none;
-
 }
 
 .userDrawing, .guessDrawing {
@@ -449,7 +447,6 @@ label {
 }
 
 .guessDrawing img {
-  /* width: 400px; */
   height: 400px;
   width: 100%;
 }
@@ -515,7 +512,7 @@ form {
 }
 
 .swal2-styled:focus {
-    box-shadow: none !important;
+  box-shadow: none !important;
 }
 
 .swal2-popup .swal2-actions:not(.swal2-loading) .swal2-styled:hover {
@@ -552,10 +549,6 @@ form {
     justify-content: center;
     align-items: center;
   }
-
-  /* .drawItContainer > *:not(:last-child) {
-    margin-bottom: 2rem;
-  } */
 
   .buttonContainer {
     display: flex;
@@ -598,7 +591,7 @@ form {
 
   .swal-modal {
     display: inline-block;
-    background-image: url("./assets/linedpaper.jpg");
+    background-image: url("./assets/linePaperBg.jpg");
     height: 30rem;
     background-size: 59rem;
   }
@@ -607,11 +600,6 @@ form {
     position: relative;
     top: 1.5rem;
   }
-
-  /* .howToPlayModal li {
-    text-align: left;
-    font-size: 1.2rem;
-  } */
 
   .swal-button, .swal-footer {
     display: none;
@@ -689,7 +677,6 @@ form {
     font-size: 4.5rem;
   }
 }
-
 
 @media (max-width: 471px) {
   h3 {

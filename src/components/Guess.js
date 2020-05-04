@@ -79,7 +79,7 @@ class Guess extends Component {
               Guess It <span aria-hidden="true">🤔</span>
             </h2>
             <div className="guessDrawing">
-              <span className="buttonText">
+              <span className="showText">
                 <img src={this.state.drawingUrl} alt="" />
               </span>
             </div>

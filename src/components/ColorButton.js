@@ -12,7 +12,7 @@ class ColorButton extends Component {
     return (
       // calls the changeColor function that lives in the parent component Canvas.js
       <button onClick={this.props.onClick} className="canvasButton">
-        <span className="buttonText">
+        <span className="showText">
           <label htmlFor="colorSelection">
             Color<span aria-hidden="true">&ensp;|&ensp;</span>
           </label>

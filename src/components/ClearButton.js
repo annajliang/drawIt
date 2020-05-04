@@ -6,7 +6,7 @@ const ClearButton = (props) => {
     return (
       // calls the clearCanvas function that lives in the parent component Canvas.js
       <button onClick={props.onClick} className="canvasButton">
-        <span className="buttonText">
+        <span className="showText">
           Clear<span aria-hidden="true">&ensp;|&ensp;</span>
           <img src={redo} alt=""></img>
         </span>
