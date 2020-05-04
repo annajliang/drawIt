@@ -27,10 +27,10 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 
 /* FONTS  */
 
-@font-face {
+/* @font-face {
    font-family: Karla-Regular;
    src: url("/drawIt/src/assets/fonts/Karla/Karla-Regular.ttf");
-}
+} */
 
 @font-face {
    font-family: Karla-Regular;
@@ -42,35 +42,35 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
    src: url("./assets/fonts/Karla/Karla-Bold.ttf");
 }
 
-@font-face {
+/* @font-face {
    font-family: Karla-Bold;
    src: url("/drawIt/src/assets/fonts/Karla/Karla-Bold.ttf");
-}
+} */
 
-@font-face {
+/* @font-face {
    font-family: Poppins;
    src: url("/drawIt/src/assets/fonts/Poppins/Poppins-ExtraBold.ttf");
-}
+} */
 
 @font-face {
    font-family: Poppins;
    src: url("./assets/fonts/Poppins/Poppins-ExtraBold.ttf");
 }
 
-@font-face {
+/* @font-face {
    font-family: Poppins-Regular;
    src: url("/drawIt/src/assets/fonts/Poppins/Poppins-Regular.ttf");
-}
+} */
 
 @font-face {
    font-family: Poppins-Regular;
    src: url("./assets/fonts/Poppins/Poppins-Regular.ttf");
 }
 
-@font-face {
+/* @font-face {
    font-family: Poppins-SemiBold;
    src: url("/drawIt/src/assets/fonts/Poppins/Poppins-SemiBold.ttf");
-}
+} */
 
 @font-face {
    font-family: Poppins-SemiBold;
