@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/drawIt.git/precache-manifest.4f9bb1beb82d4140f34d896b7977cb34.js"
+  "/drawIt.git/precache-manifest.ed70590075684f6a29d6bcff7a73d5a0.js"
 );
 
 self.addEventListener('message', (event) => {
