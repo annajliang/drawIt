@@ -136,15 +136,6 @@ class Canvas extends Component {
     }
   };
 
-  // returns true if every pixel's uint32 representation is 0 (or "blank")
-  // thank you Austin Brunkhorst @ stackoverflow.com for this code (https://stackoverflow.com/questions/17386707/how-to-check-if-a-canvas-is-blank)
-  isCanvasBlank = (canvas) => {
-    const pixelBuffer = new Uint32Array(
-      this.ctx.getImageData(0, 0, canvas.width, canvas.height).data.buffer
-    );
-    return !pixelBuffer.some((color) => color !== 0);
-  };
-
   render() {
     return (
       <main>
