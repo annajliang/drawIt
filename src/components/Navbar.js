@@ -7,7 +7,7 @@ class Navbar extends Component {
     instructionsModal = () => {
         swal(
           <ul class="howToPlayModal">
-            <h4>how to play</h4>
+            <h4>How to play</h4>
             <li>Draw the word that appears at the very top of the canvas.</li>
             <li>
               Use the buttons near the canvas to erase, clear or change colors.
