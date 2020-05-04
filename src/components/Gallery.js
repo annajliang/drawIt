@@ -22,7 +22,10 @@ class Gallery extends Component {
                 <li className="userDrawing" key={drawing.drawingId}>
                   <span className="showText">
                     <Link to={`/guess/${drawing.drawingId}`}>
-                      <img src={drawing.drawingUrl} alt="drawn by an anonymous online user" />
+                      <img
+                        src={drawing.drawingUrl}
+                        alt="drawn by an anonymous online user"
+                      />
                     </Link>
                   </span>
                 </li>

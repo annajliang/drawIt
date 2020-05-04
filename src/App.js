@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { HashRouter as Router, Route } from "react-router-dom";
-import ScrollToTop from './components/ScrollToTop';
-import Header from './components/Header';
-import Canvas from './components/Canvas';
-import Footer from './components/Footer';
-import Guess from './components/Guess'
-import Gallery from './components/Gallery'
+import ScrollToTop from "./components/ScrollToTop";
+import Header from "./components/Header";
+import Canvas from "./components/Canvas";
+import Footer from "./components/Footer";
+import Guess from "./components/Guess";
+import Gallery from "./components/Gallery";
 import firebase from "./firebase";
-import './App.css';
+import "./App.css";
 
 class App extends Component {
   constructor() {
@@ -15,8 +15,8 @@ class App extends Component {
     this.state = {
       // inital states
       drawingsArray: [],
-      randomDrawingObj: undefined
-    }
+      randomDrawingObj: undefined,
+    };
   }
 
   componentDidMount() {
@@ -24,7 +24,7 @@ class App extends Component {
     const dbRef = firebase.database().ref();
 
     // listening for any change to the entire database
-    dbRef.on('value', (snapshot) => {
+    dbRef.on("value", (snapshot) => {
       // when data changes in the database, do the following:
       // .val() will return the data in the form of an object from the database
       const dbData = snapshot.val();
@@ -47,7 +47,7 @@ class App extends Component {
 
       // after the data is retrieved from the database, call the function setInitialRandomDrawingObj with drawingsArrayFromDb as the argument
       this.setInitialRandomDrawingObj(drawingsArrayFromDb);
-    })
+    });
   }
 
   // function that will take in newDrawingsArray and check whether or not newDrawingsArray has any items in it before state is set
@@ -70,27 +70,43 @@ class App extends Component {
   setRandomIdStr = () => {
     this.setState({
       // random object from this.state.drawingsArray is retrieved everytime the click happens in the child Navbar.js component and then state gets re-updated on every click
-      randomDrawingObj: this.getRandomArrayItem(this.state.drawingsArray)
+      randomDrawingObj: this.getRandomArrayItem(this.state.drawingsArray),
     });
-  }
+  };
 
   render() {
     // condition that ensures the JSX is only returned when the data from the callback function in dbRef.on() is retrieved so that the initial drawingArrays and randomDrawingObj actually have the information we want in it before they are rendered to the page
-    if (this.state.drawingsArray.length > 0 && this.state.randomDrawingObj !== undefined) {
+    if (
+      this.state.drawingsArray.length > 0 &&
+      this.state.randomDrawingObj !== undefined
+    ) {
       return (
         <Router>
           <div className="App">
             <ScrollToTop />
-            <Header randomDrawingObj={this.state.randomDrawingObj} getRandomId={this.setRandomIdStr}/>
+            <Header
+              randomDrawingObj={this.state.randomDrawingObj}
+              getRandomId={this.setRandomIdStr}
+            />
             <Route exact path="/" component={Canvas} />
-            <Route path="/gallery" render={(props) => <Gallery {...props} drawings={this.state.drawingsArray}/>}/>
-            <Route path="/guess/:imgId" render={(props) => <Guess {...props } drawings={this.state.drawingsArray} />} />
+            <Route
+              path="/gallery"
+              render={(props) => (
+                <Gallery {...props} drawings={this.state.drawingsArray} />
+              )}
+            />
+            <Route
+              path="/guess/:imgId"
+              render={(props) => (
+                <Guess {...props} drawings={this.state.drawingsArray} />
+              )}
+            />
             <Footer />
           </div>
         </Router>
       );
     } else {
-      return null
+      return null;
     }
   }
 }
