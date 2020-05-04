@@ -48,6 +48,7 @@ h3 {
 
 h4 {
   font-family: PoppinsSemiBold;
+  text-transform: lowercase;
   font-size: 2rem;
   margin: auto;
   display: inline-block;

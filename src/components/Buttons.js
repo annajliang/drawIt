@@ -2,6 +2,7 @@ import React from "react";
 import ColorButton from "./ColorButton";
 import ClearButton from "./ClearButton";
 import SaveButton from "./SaveButton";
+import NextWordButton from "./NextWordButton";
 
 const Buttons = (props) => {
     return (
@@ -10,6 +11,7 @@ const Buttons = (props) => {
             Buttons.js and then to each of Buttons.js' respective child components */}
             <ColorButton onClick={props.colorFn} />
             <ClearButton onClick={props.clearFn} />
+            <NextWordButton onClick={props.nextWordFn} />
             <SaveButton onClick={props.saveFn} />
         </div>
     );
