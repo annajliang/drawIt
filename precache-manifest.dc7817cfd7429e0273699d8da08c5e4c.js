@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "94de5aa342e5777a74e5871d87df8980",
+    "revision": "e84be80e5086b83992348ae882196f5a",
     "url": "/drawIt/index.html"
   },
   {
-    "revision": "ac515ed86a58104028a1",
-    "url": "/drawIt/static/css/main.842e4e4d.chunk.css"
+    "revision": "20572157bc106017bdf3",
+    "url": "/drawIt/static/css/main.06c766b5.chunk.css"
   },
   {
     "revision": "eb880f92170d78b60db7",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/drawIt/static/js/2.67e9a97c.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ac515ed86a58104028a1",
-    "url": "/drawIt/static/js/main.7811010b.chunk.js"
+    "revision": "20572157bc106017bdf3",
+    "url": "/drawIt/static/js/main.0c339d60.chunk.js"
   },
   {
     "revision": "467812b9ab3bb7fcfe4f",
@@ -36,24 +36,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/drawIt/static/media/Poppins-ExtraBold.6b78c7ec.ttf"
   },
   {
-    "revision": "41e8dead03fb979ecc23b8dfb0fef627",
-    "url": "/drawIt/static/media/Poppins-Regular.41e8dead.ttf"
-  },
-  {
     "revision": "342ba3d8ac29ac8c38d7cef8efbf2dc9",
     "url": "/drawIt/static/media/Poppins-SemiBold.342ba3d8.ttf"
   },
   {
     "revision": "5834c2666e9cf10a98324ce80e05176b",
-    "url": "/drawIt/static/media/linedpaper.5834c266.jpg"
+    "url": "/drawIt/static/media/linePaperBg.5834c266.jpg"
   },
   {
-    "revision": "53ca1cf3787418bf0bf987bf4ba5e758",
-    "url": "/drawIt/static/media/newbg1.53ca1cf3.png"
-  },
-  {
-    "revision": "3ae3e76fc64e6d6791cbab001ec9c302",
-    "url": "/drawIt/static/media/nounErase.3ae3e76f.svg"
+    "revision": "3384c7b33f742bd385ea34e573085446",
+    "url": "/drawIt/static/media/nounNext.3384c7b3.svg"
   },
   {
     "revision": "297311226fb0686946c27b39bee5f4bf",
@@ -62,5 +54,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "ad82d4d9c5679195ebc9b74f224cbbf8",
     "url": "/drawIt/static/media/nounSave.ad82d4d9.svg"
+  },
+  {
+    "revision": "53ca1cf3787418bf0bf987bf4ba5e758",
+    "url": "/drawIt/static/media/squigglyLineBg.53ca1cf3.png"
   }
 ]);
