@@ -10,7 +10,7 @@ class Navbar extends Component {
             <h4>How to play</h4>
             <li>Draw the word that appears at the very top of the canvas.</li>
             <li>
-              Use the buttons on the far-left to change colors, clear the
+              Use the buttons on the far left to change colors, clear the
               canvas or get a different word to draw.
             </li>
             <li>
