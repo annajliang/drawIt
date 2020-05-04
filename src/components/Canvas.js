@@ -77,18 +77,21 @@ class Canvas extends Component {
   // click handler that allows user to change the default strokeStyle of black and instead choose a custom color
   // hexcolor that user has chosen is retrieved from ColorButton.js which is then passed from Buttons.js to Canvas.js
   changeColor = (selectedColor) => {
-    this.ctx.strokeStyle = selectedColor;
+    if (selectedColor != ("#ffffff" || "#fdfdfd" || "#fcfcfc")) {
+      this.ctx.strokeStyle = selectedColor;
+    } else {
+      this.setState({
+        showModal: true,
+        modalText:
+          "Please pick another color. Do not be a troll and save a blank drawing.",
+        modalHeader: "troll alert!",
+      });
+    }
   };
 
   // click handler that allows user to clear the entire canvas
   clearCanvas = () => {
     this.ctx.clearRect(0, 0, 450, 500);
-  };
-
-  // click handler that allows user to erase parts of their drawing
-  eraseCanvas = () => {
-    // change strokeStyle to white in order to mimic an eraser
-    this.ctx.strokeStyle = "#fff";
   };
 
   // function that returns a random array item
@@ -153,7 +156,6 @@ class Canvas extends Component {
             <Buttons
               colorFn={this.changeColor}
               clearFn={this.clearCanvas}
-              eraseFn={this.eraseCanvas}
               saveFn={this.saveDrawing}
             />
 
