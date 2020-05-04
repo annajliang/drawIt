@@ -61,7 +61,7 @@ class Canvas extends Component {
       this.ctx.lineTo(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
       // will form the lines
       this.ctx.stroke();
-      // enusres that the line is continious
+      // ensures that the line is continious
       this.ctx.beginPath();
       this.ctx.moveTo(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
     }
@@ -74,11 +74,13 @@ class Canvas extends Component {
     this.ctx.beginPath();
   };
 
-  // click handler that allows user to change the default strokeStyle of black and instead choose a custom color
+  // function that allows user to change the default strokeStyle of black and instead choose a custom color
   // hexcolor that user has chosen is retrieved from ColorButton.js which is then passed from Buttons.js to Canvas.js
   changeColor = (selectedColor) => {
+    // user's color selection will not be stored if they pick white
     if (selectedColor != "#ffffff") {
       this.ctx.strokeStyle = selectedColor;
+    // prevents user from spamming database with blank drawings
     } else {
       this.setState({
         showModal: true,
@@ -89,11 +91,13 @@ class Canvas extends Component {
     }
   };
 
-  // click handler that allows user to clear the entire canvas
+  // function that allows user to clear the entire canvas on click
   clearCanvas = () => {
     this.ctx.clearRect(0, 0, 450, 500);
   };
 
+  // function that allows user to choose a different drawing word on click
+  // state is set every time this is called
   nextWord = () => {
     this.setState({
       drawingWord: this.getRandomWord(words),
@@ -105,7 +109,7 @@ class Canvas extends Component {
     return array[Math.floor(Math.random() * array.length)];
   };
 
-  // click handler that saves or rejects the user's drawing
+  // function that saves or rejects the user's drawing
   saveDrawing = () => {
     // save canvas image to variable (png format by default, stores the drawing as a base64 string)
     const drawingUrl = this.canvas.current.toDataURL();
