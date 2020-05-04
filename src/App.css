@@ -27,11 +27,6 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 
 /* FONTS  */
 
-/* @font-face {
-   font-family: Karla-Regular;
-   src: url("/drawIt/src/assets/fonts/Karla/Karla-Regular.ttf");
-} */
-
 @font-face {
    font-family: Karla-Regular;
    src: url("./assets/fonts/Karla/Karla-Regular.ttf");
@@ -42,35 +37,15 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
    src: url("./assets/fonts/Karla/Karla-Bold.ttf");
 }
 
-/* @font-face {
-   font-family: Karla-Bold;
-   src: url("/drawIt/src/assets/fonts/Karla/Karla-Bold.ttf");
-} */
-
-/* @font-face {
-   font-family: Poppins;
-   src: url("/drawIt/src/assets/fonts/Poppins/Poppins-ExtraBold.ttf");
-} */
-
 @font-face {
    font-family: Poppins;
    src: url("./assets/fonts/Poppins/Poppins-ExtraBold.ttf");
 }
 
-/* @font-face {
-   font-family: Poppins-Regular;
-   src: url("/drawIt/src/assets/fonts/Poppins/Poppins-Regular.ttf");
-} */
-
 @font-face {
    font-family: Poppins-Regular;
    src: url("./assets/fonts/Poppins/Poppins-Regular.ttf");
 }
-
-/* @font-face {
-   font-family: Poppins-SemiBold;
-   src: url("/drawIt/src/assets/fonts/Poppins/Poppins-SemiBold.ttf");
-} */
 
 @font-face {
    font-family: Poppins-SemiBold;
@@ -87,6 +62,8 @@ body {
     background-image: url("./assets/newbg1.png");
     background-size: center;
 }
+
+/* HEADER */
 
 header {
   background-color: #f7d3c0;
@@ -117,7 +94,8 @@ nav {
   margin-right: 4rem;
 }
 
-/* https://codepen.io/P233/pen/EaGAl */
+/* animation for anchor tags from https://codepen.io/P233/pen/EaGAl */ 
+
 a {
   font-family: Karla-Bold;
   text-transform: uppercase;
@@ -153,32 +131,13 @@ input:focus {
   outline-color: #FD9F9F;
 }
 
+/* CANVAS (HOME) SECTION */
+
 h1 {
   font-family: Karla-Bold;
   letter-spacing: 0.5px;
   text-transform: lowercase;
   font-size: 1.3rem;
-}
-
-.divider {
-  margin: 0 2rem;;
-}
-
-p {
-  font-family: Poppins-SemiBold;
-  font-size: 1rem;
-  text-shadow: 2px 2px #fff;
-  letter-spacing: 0.5px;
-  font-size: 1.3rem;
-  line-height: 1.5;
-  /* text-transform: lowercase; */
-  /* line-height: 1.2;
-  font-size: 1.3rem; */
-  /* background-color: rgba(255, 255, 255, 0.562); */
-  /* padding: 1.5px 5px; */
-  /* border-radius: 25px; */
-  /* text-shadow: 2px 2px #f7d3c0; */
-  /* background-image: linear-gradient(rgba(255, 255, 255, 0) 40%, #fff 20%); */
 }
 
 .drawItHeading {
@@ -193,22 +152,6 @@ p {
   position: relative;
   right: 7rem;
   margin-bottom: 1rem;
-}
-
-.guessItHeading, .seeItHeading {
-  text-transform: lowercase;
-  font-family: Poppins;
-  font-size: 6rem;
-  -webkit-text-stroke-width: 3px;
-  -webkit-text-stroke-color: white;
-  text-shadow: 3px 3px #e6e6d8, 6px 6px #c6a39a;
-  background-image: linear-gradient(rgba(255, 255, 255, 0) 60%, #f7d3c0 20%);
-  display: inline-block;
-  margin-bottom: 2rem;
-}
-
-.navbarContainer {
-  height: 100%;
 }
 
 h3 {
@@ -228,6 +171,35 @@ h3 {
   text-shadow: 3px 2px #fff;
 }
 
+.divider {
+  margin: 0 2rem;;
+}
+
+p {
+  font-family: Poppins-SemiBold;
+  font-size: 1rem;
+  text-shadow: 2px 2px #fff;
+  letter-spacing: 0.5px;
+  font-size: 1.3rem;
+  line-height: 1.5;
+}
+
+.guessItHeading, .seeItHeading {
+  text-transform: lowercase;
+  font-family: Poppins;
+  font-size: 6rem;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: white;
+  text-shadow: 3px 3px #e6e6d8, 6px 6px #c6a39a;
+  background-image: linear-gradient(rgba(255, 255, 255, 0) 60%, #f7d3c0 20%);
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+.navbarContainer {
+  height: 100%;
+}
+
 section {
   width: 100%;
 }
@@ -241,16 +213,15 @@ section {
 .canvasAndHowTo {
   position: relative;
   display: flex;
-  /* flex-direction: column; */
 }
 
 canvas {
-    border: 2px dashed;
-    width: 450px;
-    height: 500px;
-    padding: 1rem 0.5rem;
-    border-radius: 1rem;
-    background-color: white;
+  border: 2px dashed;
+  width: 450px;
+  height: 500px;
+  padding: 1rem 0.5rem;
+  border-radius: 1rem;
+  background-color: white;
 }
 
 .canvasButton {
@@ -329,7 +300,6 @@ img {
   position: relative;
   bottom: 2.65rem;
   left: 2rem;
-  
 }
 
 .colorSelection::-webkit-color-swatch {
@@ -353,11 +323,11 @@ img {
 }
 
 .howToPlay li, .howToPlayModal li {
-    font-size: 1.2rem;
-    line-height: 1.95;
-    text-align: left;
-    margin-left: 1rem;
-    padding: 0 0.5rem 0 2.8rem;
+  font-size: 1.2rem;
+  line-height: 1.95;
+  text-align: left;
+  margin-left: 1rem;
+  padding: 0 0.5rem 0 2.8rem;
 }
 
 h4 {
@@ -371,8 +341,7 @@ h4 {
 
 .howToPlay li::before, .howToPlayModal li::before {
   content: "\2022"; 
-  color: black; /* Change the color */
-  font-weight: bold; 
+  color: inherit;
   display: inline-block;
   width: 1.5em; 
   margin-left: -1.5em;

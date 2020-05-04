@@ -61,7 +61,6 @@ class Guess extends Component {
 
     // condition to make sure that we are actually getting something back 
     if (findCorrectDrawingObj.length > 0) {
-      console.log('findMatchId', findCorrectDrawingObj)
       //once the correct object has been found, set state to store the drawing's corresponding drawingWord and drawingUrl
       this.setState({
         correctGuess: findCorrectDrawingObj[0].drawingWord,
@@ -72,8 +71,6 @@ class Guess extends Component {
 
   // render happens after a state change and after it receive new props
   render() {
-    // console.log("drawings array from Guess.js", this.props.drawings);
-    // console.log("imgId from Guess.js", this.props.match.params.imgId);
     return (
       <section className="guessSection">
         <div className="wrapper">

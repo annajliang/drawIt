@@ -3,14 +3,8 @@ import { Link } from "react-router-dom";
 import swal from "@sweetalert/with-react";
 
 class Navbar extends Component {
-    constructor() {
-        super();
-        this.state = {
-            idArray: []
-        }
-    }
-
-    sweetAlert = () => {
+    // instructionsModal only appears on smaller screen widths
+    instructionsModal = () => {
         swal(
           <ul class="howToPlayModal">
             <h4>how to play</h4>
@@ -31,20 +25,17 @@ class Navbar extends Component {
     }
 
     render() {
-        console.log('randomDrawingObj from navbar.js', this.props.randomDrawingObj)
-        // console.log('length', this.props.drawings.length)
-        console.log('NAVBAR.js i rendered')
         return (
             <>
                 <nav>
                     <h1>Draw It</h1>
-                    <span className="divider">|</span>
+                    <span aria-hidden="true" className="divider">|</span>
                     <ul className="navbarLinks">
                         <li>
                             <Link to="/">Home</Link>
                         </li>
                         <li>
-                            <Link to="/" className="instructionsLink" onClick={this.sweetAlert}>Instructions</Link>
+                            <Link to="/" className="instructionsLink" onClick={this.instructionsModal}>Instructions</Link>
                         </li>
                         <li>
                             <Link to="/gallery">Gallery</Link>
