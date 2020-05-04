@@ -77,7 +77,7 @@ class Canvas extends Component {
   // click handler that allows user to change the default strokeStyle of black and instead choose a custom color
   // hexcolor that user has chosen is retrieved from ColorButton.js which is then passed from Buttons.js to Canvas.js
   changeColor = (selectedColor) => {
-    if (selectedColor != ("#ffffff" || "#fdfdfd" || "#fcfcfc")) {
+    if (selectedColor != "#ffffff") {
       this.ctx.strokeStyle = selectedColor;
     } else {
       this.setState({
