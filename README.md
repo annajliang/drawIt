@@ -1,4 +1,6 @@
-'Draw It' was inspired by the creative works of [Olga Filiushkina] (https://github.com/Olcatsy/analog) and [Negin Sauermann] (https://github.com/nuggetsnegin/negin-sauermann-beyond-bootcamp).
+Draw It' was inspired by the creative works of [Olga Filiushkina](https://github.com/Olcatsy/analog) and [Negin Sauermann](https://github.com/nuggetsnegin/negin-sauermann-beyond-bootcamp).
+
+***
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
