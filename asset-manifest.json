@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/drawIt/static/css/main.bc80fdb2.chunk.css",
+    "main.css": "/drawIt/static/css/main.6d3c04e6.chunk.css",
     "main.js": "/drawIt/static/js/main.610e380f.chunk.js",
     "main.js.map": "/drawIt/static/js/main.610e380f.chunk.js.map",
     "runtime-main.js": "/drawIt/static/js/runtime-main.a4bcfecf.js",
@@ -8,9 +8,9 @@
     "static/js/2.6b9321c2.chunk.js": "/drawIt/static/js/2.6b9321c2.chunk.js",
     "static/js/2.6b9321c2.chunk.js.map": "/drawIt/static/js/2.6b9321c2.chunk.js.map",
     "index.html": "/drawIt/index.html",
-    "precache-manifest.99d7ceec675534792610e50d4e140c44.js": "/drawIt/precache-manifest.99d7ceec675534792610e50d4e140c44.js",
+    "precache-manifest.cc51bd17c4eb0d1855d334d5aaa97928.js": "/drawIt/precache-manifest.cc51bd17c4eb0d1855d334d5aaa97928.js",
     "service-worker.js": "/drawIt/service-worker.js",
-    "static/css/main.bc80fdb2.chunk.css.map": "/drawIt/static/css/main.bc80fdb2.chunk.css.map",
+    "static/css/main.6d3c04e6.chunk.css.map": "/drawIt/static/css/main.6d3c04e6.chunk.css.map",
     "static/js/2.6b9321c2.chunk.js.LICENSE.txt": "/drawIt/static/js/2.6b9321c2.chunk.js.LICENSE.txt",
     "static/media/App.css": "/drawIt/static/media/squigglyLineBg.53ca1cf3.png",
     "static/media/nounNext.svg": "/drawIt/static/media/nounNext.3384c7b3.svg",
@@ -20,7 +20,7 @@
   "entrypoints": [
     "static/js/runtime-main.a4bcfecf.js",
     "static/js/2.6b9321c2.chunk.js",
-    "static/css/main.bc80fdb2.chunk.css",
+    "static/css/main.6d3c04e6.chunk.css",
     "static/js/main.610e380f.chunk.js"
   ]
 }
