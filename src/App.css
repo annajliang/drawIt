@@ -261,6 +261,7 @@ canvas {
   padding: 1rem 0.5rem;
   border-radius: 1rem;
   background-color: white;
+  touch-action: none;
 }
 
 .canvasButton {
