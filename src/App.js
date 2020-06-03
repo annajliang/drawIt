@@ -3,7 +3,6 @@ import { HashRouter as Router, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import Header from "./components/Header";
 import Canvas from "./components/Canvas";
-import Footer from "./components/Footer";
 import Guess from "./components/Guess";
 import Gallery from "./components/Gallery";
 import firebase from "./firebase";
@@ -101,7 +100,6 @@ class App extends Component {
                 <Guess {...props} drawings={this.state.drawingsArray} />
               )}
             />
-            <Footer />
           </div>
         </Router>
       );
