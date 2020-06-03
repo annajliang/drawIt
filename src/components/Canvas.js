@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import Buttons from './Buttons';
-import HowToPlay from './HowToPlay';
-import words from '../data/words';
+import React, { Component } from "react";
+import Buttons from "./Buttons";
+import HowToPlay from "./HowToPlay";
+import words from "../data/words";
 import firebase from "../firebase";
 import SweetAlert from "sweetalert2-react";
-import forbiddenColors from '../data/forbiddenColors';
+import forbiddenColors from "../data/forbiddenColors";
 
-// thank you Dev Ed @ youtube.com/channel/UClb90NQQcskPUGDIXsQEz5Q for your tutorial on HTML5 Canvas 
+// thank you Dev Ed @ youtube.com/channel/UClb90NQQcskPUGDIXsQEz5Q for your tutorial on HTML5 Canvas
 
 class Canvas extends Component {
   constructor() {
@@ -22,17 +22,62 @@ class Canvas extends Component {
       showModal: false,
       modalText: "",
       modalHeader: "",
+      height: 500,
+      width: 450,
     };
   }
 
   // only runs once after the render
   componentDidMount() {
-    // setup canvas for drawing
-    // this is what we’ll actually be drawing on
-    this.ctx = this.canvas.current.getContext("2d");
+    this.handleResize();
+    window.addEventListener("resize", this.handleResize.bind(this));
 
-    // default color of line
-    this.ctx.strokeStyle = "#000";
+    // get a random drawing word from the words array in words.js and set it to state to get re-rendered on the page
+    this.setState({
+      drawingWord: this.getRandomWord(words),
+    });
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.handleResize.bind(this));
+  }
+
+  handleResize = () => {
+    if (window.innerWidth > 525) {
+      this.setState({ width: 450, height: 500 });
+    } else if (window.innerWidth <= 525 && window.innerWidth > 471) {
+      this.setState({ width: 400, height: 500 });
+    } else if (window.innerWidth <= 471 && window.innerWidth > 412) {
+      this.setState({ width: 350, height: 500 });
+    } else if (window.innerWidth <= 412 && window.innerWidth > 374) {
+      this.setState({ width: 320, height: 500 });
+    } else if (window.innerWidth <= 374 && window.innerWidth > 350) {
+      this.setState({ width: 300, height: 500 });
+    } else if (window.innerWidth <= 350) {
+      this.setState({ width: 275, height: 500 });
+    }
+  };
+
+  // prepares drawing to start on mousedown
+  startDrawing = (e) => {
+    this.isDrawing = true;
+    // allows user to also draw dots on the page on mousedown events instead of just lines with mousemoves events
+    this.draw(e);
+
+    if (e.type === "touchstart") {
+      this.isDrawing = true;
+      console.log("touchstart");
+      const touch = e.touches[0];
+      this.swipe = {
+        x: touch.clientX,
+        y: touch.clientY,
+      };
+    }
+  };
+
+  // draw lines as mouse moves
+  draw = (e) => {
+    this.ctx = this.canvas.current.getContext("2d");
 
     // width of the line
     this.ctx.lineWidth = 7;
@@ -41,38 +86,49 @@ class Canvas extends Component {
     this.ctx.lineJoin = "round";
     this.ctx.lineCap = "round";
 
-    // get a random drawing word from the words array in words.js and set it to state to get re-rendered on the page
-    this.setState({
-      drawingWord: this.getRandomWord(words),
-    });
-  }
+    // returns the size of the canvas element and its position relative to the viewport
+    const pos = this.canvas.current.getBoundingClientRect();
 
-  // prepares drawing to start on mousedown
-  startDrawing = (e) => {
-    this.isDrawing = true;
-    // allows user to also draw dots on the page on mousedown events instead of just lines with mousemoves events
-    this.draw(e);
-  };
+    // console.log('pos', pos)
+    let offsetX = pos.left;
+    let offsetY = pos.top;
+    let mouseX = parseInt(e.nativeEvent.clientX - offsetX);
+    let mouseY = parseInt(e.nativeEvent.clientY - offsetY);
 
-  // draw lines as mouse moves
-  draw = (e) => {
     // if the condition is true, then whatever the coordinates are for where the user chooses to place their mouse and begin drawing, form a continous line until the condition is false
-    if (this.isDrawing) {
+    if (e.type === "mousemove" && this.isDrawing) {
       // we want the line to go to where the user's mouse is
-      this.ctx.lineTo(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
+      this.ctx.lineTo(mouseX, mouseY);
       // will form the lines
       this.ctx.stroke();
       // ensures that the line is continious
       this.ctx.beginPath();
-      this.ctx.moveTo(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
+      this.ctx.moveTo(mouseX, mouseY);
+    } else if (e.type === "touchmove" && this.isDrawing) {
+      console.log("touchmove");
+      const touch = e.changedTouches[0];
+      let touchX = parseInt(touch.clientX - offsetX);
+      let touchY = parseInt(touch.clientY - offsetY);
+      this.ctx.lineTo(touchX, touchY);
+      // will form the lines
+      this.ctx.stroke();
+      // ensures that the line is continious
+      this.ctx.beginPath();
+      this.ctx.moveTo(touchX, touchY);
     }
   };
 
   // on mouse up, stop the drawing
-  stopDrawing = () => {
+  stopDrawing = (e) => {
     this.isDrawing = false;
     // resets the path
     this.ctx.beginPath();
+
+    if (e.type === "touchend") {
+      console.log("touchend");
+      this.isDrawing = false;
+      this.ctx.beginPath();
+    }
   };
 
   // function that allows user to change the default strokeStyle of black and instead choose a custom color
@@ -126,7 +182,8 @@ class Canvas extends Component {
       // set state to have the modal triggered and allow a re-render to occur
       this.setState({
         showModal: true,
-        modalText: "Please draw something before saving your work to the gallery.",
+        modalText:
+          "Please draw something before saving your work to the gallery.",
         modalHeader: "Oops...",
       });
     } else {
@@ -139,7 +196,8 @@ class Canvas extends Component {
       // modal will show user a success message
       this.setState({
         showModal: true,
-        modalText: "Your drawing has been saved to the gallery. Go check it out!",
+        modalText:
+          "Your drawing has been saved to the gallery. Go check it out!",
         modalHeader: "Success!",
       });
     }
@@ -184,9 +242,12 @@ class Canvas extends Component {
                 onMouseDown={this.startDrawing}
                 onMouseMove={this.draw}
                 onMouseUp={this.stopDrawing}
-                width={450}
-                height={500}
-              />
+                onTouchStart={this.startDrawing}
+                onTouchMove={this.draw}
+                onTouchEnd={this.stopDrawing}
+                width={this.state.width}
+                height={this.state.height}
+              ></canvas>
               <HowToPlay />
             </div>
           </div>
