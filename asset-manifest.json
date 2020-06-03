@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/drawIt/static/css/main.e374ac08.chunk.css",
-    "main.js": "/drawIt/static/js/main.03055c73.chunk.js",
-    "main.js.map": "/drawIt/static/js/main.03055c73.chunk.js.map",
+    "main.css": "/drawIt/static/css/main.ecf29de2.chunk.css",
+    "main.js": "/drawIt/static/js/main.5b1b6c3f.chunk.js",
+    "main.js.map": "/drawIt/static/js/main.5b1b6c3f.chunk.js.map",
     "runtime-main.js": "/drawIt/static/js/runtime-main.a4bcfecf.js",
     "runtime-main.js.map": "/drawIt/static/js/runtime-main.a4bcfecf.js.map",
     "static/js/2.6b9321c2.chunk.js": "/drawIt/static/js/2.6b9321c2.chunk.js",
     "static/js/2.6b9321c2.chunk.js.map": "/drawIt/static/js/2.6b9321c2.chunk.js.map",
     "index.html": "/drawIt/index.html",
-    "precache-manifest.fdd3dfe5d910f120fe6061a569fc23e8.js": "/drawIt/precache-manifest.fdd3dfe5d910f120fe6061a569fc23e8.js",
+    "precache-manifest.762e1583aaa9abfd2a5d8f10eca1a51b.js": "/drawIt/precache-manifest.762e1583aaa9abfd2a5d8f10eca1a51b.js",
     "service-worker.js": "/drawIt/service-worker.js",
-    "static/css/main.e374ac08.chunk.css.map": "/drawIt/static/css/main.e374ac08.chunk.css.map",
+    "static/css/main.ecf29de2.chunk.css.map": "/drawIt/static/css/main.ecf29de2.chunk.css.map",
     "static/js/2.6b9321c2.chunk.js.LICENSE.txt": "/drawIt/static/js/2.6b9321c2.chunk.js.LICENSE.txt",
     "static/media/App.css": "/drawIt/static/media/squigglyLineBg.53ca1cf3.png",
     "static/media/nounNext.svg": "/drawIt/static/media/nounNext.3384c7b3.svg",
@@ -20,7 +20,7 @@
   "entrypoints": [
     "static/js/runtime-main.a4bcfecf.js",
     "static/js/2.6b9321c2.chunk.js",
-    "static/css/main.e374ac08.chunk.css",
-    "static/js/main.03055c73.chunk.js"
+    "static/css/main.ecf29de2.chunk.css",
+    "static/js/main.5b1b6c3f.chunk.js"
   ]
 }
