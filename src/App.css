@@ -349,13 +349,15 @@ label {
   position: relative;
   right: 0.6rem;
   width: 160px;
-  height: 50px;
+  height: 81px;
+  top: 15px;
   cursor: pointer;
 }
 
 @-moz-document url-prefix() {
   label { 
     top: 1rem;  
+    height: 50px;
   }
 
   .colorSelection {
