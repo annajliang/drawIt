@@ -196,7 +196,7 @@ nav {
 
 /* animation for anchor tags from https://codepen.io/P233/pen/EaGAl */ 
 
-a {
+nav a {
   font-family: KarlaBold;
   text-transform: uppercase;
   display: inline-block;
@@ -208,13 +208,13 @@ a {
   text-decoration: none;
 }
 
-a:before, a:after {
+nav a:before, nav a:after {
   content: '';
   position: absolute;
   transition: transform .5s ease;
 }
 
-a:before {
+nav a:before {
   left: 0;
   bottom: 0;
   width: 100%;
@@ -223,7 +223,7 @@ a:before {
   transform:  translateX(-100%);
 }
 
-a:hover:before {
+nav a:hover:before {
   transform:  translateX(0);
 }
 
