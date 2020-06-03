@@ -114,6 +114,10 @@ section {
   z-index: 1;
 }
 
+.userDrawing, .userDrawing:after, .userDrawing:before {
+   height: 300px;
+}
+
 /* UTILITIES */
 
 .wrapper {
@@ -403,8 +407,10 @@ label {
 }
 
 .userDrawing img {
-  width: 100%;
   z-index: 5;
+  object-fit: contain;
+  width: 100%;
+  height: 290px;
 }
 
 /* GUESS SECTION */
