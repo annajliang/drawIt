@@ -319,7 +319,7 @@ canvas {
 
 .colorSelection {
   position: relative;
-  bottom: 2.65rem;
+  bottom: 2.3rem;
   left: 33px;
   padding: 0;
   border-radius: 100%;
@@ -348,24 +348,11 @@ label {
   justify-content: center;
   position: relative;
   right: 0.6rem;
-  width: 160px;
-  height: 81px;
-  top: 15px;
+  /* width: 160px; */
+  height: 40px;
+  /* top: 8px; */
   cursor: pointer;
 }
-
-@-moz-document url-prefix() {
-  label { 
-    top: 1rem;  
-    height: 50px;
-  }
-
-  .colorSelection {
-    height: 19px;
-    width: 19px;
-    bottom: 1.65rem;
-  }
-}  
 
 /* HOW TO PLAY / INSTRUCTIONS */
 
@@ -532,6 +519,31 @@ footer {
 footer p {
   font-size: 1rem;
 }
+
+@-moz-document url-prefix() {
+  label { 
+    top: 1rem;  
+    height: 50px;
+  }
+
+  .colorSelection {
+    height: 19px;
+    width: 19px;
+    bottom: 1.65rem;
+  }
+} 
+
+@media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) { 
+  label { 
+    width: 160px;
+    height: 81px;
+    top: 15px;
+  }
+
+  .colorSelection {
+    bottom: 2.65rem;
+  }
+} 
 
 @media (max-width: 1210px) {
   main {
