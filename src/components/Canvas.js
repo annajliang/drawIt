@@ -66,7 +66,6 @@ class Canvas extends Component {
 
     if (e.type === "touchstart") {
       this.isDrawing = true;
-      console.log("touchstart");
       const touch = e.touches[0];
       this.swipe = {
         x: touch.clientX,
@@ -88,8 +87,6 @@ class Canvas extends Component {
 
     // returns the size of the canvas element and its position relative to the viewport
     const pos = this.canvas.current.getBoundingClientRect();
-
-    // console.log('pos', pos)
     let offsetX = pos.left;
     let offsetY = pos.top;
     let mouseX = parseInt(e.nativeEvent.clientX - offsetX);
@@ -105,7 +102,6 @@ class Canvas extends Component {
       this.ctx.beginPath();
       this.ctx.moveTo(mouseX, mouseY);
     } else if (e.type === "touchmove" && this.isDrawing) {
-      console.log("touchmove");
       const touch = e.changedTouches[0];
       let touchX = parseInt(touch.clientX - offsetX);
       let touchY = parseInt(touch.clientY - offsetY);
@@ -125,7 +121,6 @@ class Canvas extends Component {
     this.ctx.beginPath();
 
     if (e.type === "touchend") {
-      console.log("touchend");
       this.isDrawing = false;
       this.ctx.beginPath();
     }
