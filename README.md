@@ -5,8 +5,8 @@ Think you got what it takes to be the next Van Gogh or Michelangelo? Prove it wi
 
 ## Features
 -   Showcases understanding of React concepts (e.g. state, props, components) as well as error handling and UI/UX design
--   Uses HTML5 canvas element via Javascript to allow users the ability to draw their own graphics
--   Uses Firebase as a real-time database to allow users to save their drawings
+-   HTML5 canvas element via Javascript to allow users the ability to draw their own graphics
+-   Firebase as a real-time database to allow users to save their drawings
 -   Modern ES6 used 
 -   Error handling to prevent users from spamming blank drawings
 -   Responsive design across all modern platforms and browsers
