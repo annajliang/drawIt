@@ -1,8 +1,7 @@
-View the project <a href="https://annajliang.github.io/drawIt/">here</a>.
-
 # Draw It
 
-## Description
+View the project <a href="https://annajliang.github.io/drawIt/">here</a>.
+
 Think you got what it takes to be the next Van Gogh or Michelangelo? Prove it with this pictionary-based app that lets you show off your talents and allow you and users from around the globe to guess each other's drawings.
 
 ## Features
