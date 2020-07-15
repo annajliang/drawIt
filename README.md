@@ -8,7 +8,7 @@ Think you got what it takes to be the next Van Gogh or Michelangelo? Prove it wi
 -   HTML5 canvas element via Javascript to allow users the ability to draw their own graphics
 -   Firebase as a real-time database to allow users to save their drawings
 -   Modern ES6 used 
--   Error handling to prevent users from spamming blank drawings
+-   Error handling to prevent users from spamming blank drawings to Firebase
 -   Responsive design across all modern platforms and browsers
 
 View the project <a href="https://annajliang.github.io/drawIt/">here</a>.
