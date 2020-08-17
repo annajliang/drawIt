@@ -5,7 +5,7 @@ import save from "../assets/nounSave.svg";
 const SaveButton = (props) => {
   return (
     // calls the saveDrawing function that lives in the parent component Canvas.js
-    <button onClick={props.onClick} className="canvasButton" aria-label="change color">
+    <button onClick={!props.disabled ? props.saveFn : props.checkSaveFn } className="canvasButton" aria-label="change color">
       <span className="showText">
         Save<span aria-hidden="true">&ensp;|&ensp;</span>
         {/* Save by Kevin White from the Noun Project */}

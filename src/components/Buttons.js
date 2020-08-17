@@ -5,14 +5,15 @@ import SaveButton from "./SaveButton";
 import NextWordButton from "./NextWordButton";
 
 const Buttons = (props) => {
+    // console.log(props);
     return (
         <div className="buttonContainer">
             {/* function props that are passed from the parent component of Canvas.js to its child 
             Buttons.js and then to each of Buttons.js' respective child components */}
-            <ColorButton onClick={props.colorFn} />
-            <ClearButton onClick={props.clearFn} />
-            <NextWordButton onClick={props.nextWordFn} />
-            <SaveButton onClick={props.saveFn} />
+            <ColorButton colorFn={props.colorFn} />
+            <ClearButton clearFn={props.clearFn} />
+            <NextWordButton nextWordFn={props.nextWordFn} />
+            <SaveButton saveFn={props.saveFn} checkSaveFn={props.checkSaveFn} disabled={props.disabled} />
         </div>
     );
 };

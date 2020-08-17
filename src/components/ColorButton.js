@@ -5,13 +5,13 @@ class ColorButton extends Component {
   getHexColor = (e) => {
     const hexColor = e.currentTarget.value;
     // variable is passed back up from ColorButton.js -> Buttons.js -> Canvas.js
-    this.props.onClick(hexColor);
+    this.props.colorFn(hexColor);
   };
 
   render() {
     return (
       // calls the changeColor function that lives in the parent component Canvas.js
-      <button onClick={this.props.onClick} className="canvasButton" aria-label="change color">
+      <button onClick={this.props.colorFn} className="canvasButton" aria-label="change color">
         <span className="showText">
           <label htmlFor="colorSelection">
             Color<span aria-hidden="true">&ensp;|&ensp;</span>

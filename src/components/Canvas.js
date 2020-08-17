@@ -24,6 +24,9 @@ class Canvas extends Component {
       modalHeader: "",
       height: 500,
       width: 450,
+      isDisabled: false,
+      submissionTime: null,
+      reSubmissionTime: null,
     };
   }
 
@@ -36,10 +39,6 @@ class Canvas extends Component {
     this.setState({
       drawingWord: this.getRandomWord(words),
     });
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.handleResize.bind(this));
   }
 
   handleResize = () => {
@@ -194,6 +193,8 @@ class Canvas extends Component {
         modalText:
           "Your drawing has been saved to the gallery. Go check it out!",
         modalHeader: "Success!",
+        isDisabled: true,
+        submissionTime: new Date()
       });
     }
   };
@@ -206,6 +207,26 @@ class Canvas extends Component {
     );
     return !pixelBuffer.some((color) => color !== 0);
   };
+
+  checkIfUserCanSave = () => {
+    this.setState({
+      reSubmissionTime: new Date()
+    });
+
+    if (this.state.reSubmissionTime - this.state.submissionTime < 60000) {
+      this.setState({
+        showModal: true,
+        modalText:
+          "In order to prevent spamming of the gallery, please wait a minute to save another drawing.",
+        modalHeader: "Please wait!",
+      });
+    } else {
+      this.setState({
+        isDisabled: false,
+      });
+      this.saveDrawing();
+    }
+  }
 
   render() {
     return (
@@ -220,12 +241,15 @@ class Canvas extends Component {
               clearFn={this.clearCanvas}
               nextWordFn={this.nextWord}
               saveFn={this.saveDrawing}
+              disabled={this.state.isDisabled}
+              checkSaveFn={this.checkIfUserCanSave}
             />
 
             <SweetAlert
               show={this.state.showModal}
               title={this.state.modalHeader}
               text={this.state.modalText}
+              onOutsideClick={() => this.setState({ showModal: false })}
               onConfirm={() => this.setState({ showModal: false })}
             />
 
