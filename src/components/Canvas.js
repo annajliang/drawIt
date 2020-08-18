@@ -217,7 +217,7 @@ class Canvas extends Component {
       this.setState({
         showModal: true,
         modalText:
-          "In order to prevent spamming of the gallery, please wait a minute to save another drawing.",
+          "In order to prevent spamming of the gallery, please wait a minute before saving another drawing.",
         modalHeader: "Please wait!",
       });
     } else {
