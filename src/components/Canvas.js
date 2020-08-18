@@ -33,6 +33,7 @@ class Canvas extends Component {
 
   // only runs once after the render
   componentDidMount() {
+    this.ctx = this.canvas.current.getContext("2d");
     this.isBlank = this.canvas.current.toDataURL();
     this.handleResize();
     window.addEventListener("resize", this.handleResize.bind(this));
@@ -67,21 +68,11 @@ class Canvas extends Component {
 
     if (e.type === "touchstart") {
       this.isDrawing = true;
-      const touch = e.touches[0];
-      this.swipe = {
-        x: touch.clientX,
-        y: touch.clientY,
-      };
     }
   };
 
   // draw lines as mouse moves
   draw = (e) => {
-    this.ctx = this.canvas.current.getContext("2d");
-
-    // width of the line
-    // this.ctx.lineWidth = 7;
-
     // ensures that we get a smooth drawing rather than a squared-off edge by default
     this.ctx.lineJoin = "round";
     this.ctx.lineCap = "round";
@@ -90,36 +81,35 @@ class Canvas extends Component {
     const pos = this.canvas.current.getBoundingClientRect();
     let offsetX = pos.left;
     let offsetY = pos.top;
-    let mouseX = parseInt(e.nativeEvent.clientX - offsetX);
-    let mouseY = parseInt(e.nativeEvent.clientY - offsetY);
+    let x;
+    let y;
 
     // if the condition is true, then whatever the coordinates are for where the user chooses to place their mouse and begin drawing, form a continous line until the condition is false
-    if (e.type === "mousemove" && this.isDrawing) {
-      // we want the line to go to where the user's mouse is
-      this.ctx.lineTo(mouseX, mouseY);
-      // will form the lines
+    if (this.isDrawing) {
+      if (e.type === "mousemove") {
+        x = e.clientX - offsetX;
+        y = e.clientY - offsetY;
+      }
+
+      else if (e.type === "touchmove") {
+        const touch = e.changedTouches[0];
+        x = touch.clientX - offsetX;
+        y = touch.clientY - offsetY;
+      }
+
+      this.ctx.lineTo(x, y);
       this.ctx.stroke();
-      // ensures that the line is continious
       this.ctx.beginPath();
-      this.ctx.moveTo(mouseX, mouseY);
-    } else if (e.type === "touchmove" && this.isDrawing) {
-      const touch = e.changedTouches[0];
-      let touchX = parseInt(touch.clientX - offsetX);
-      let touchY = parseInt(touch.clientY - offsetY);
-      this.ctx.lineTo(touchX, touchY);
-      // will form the lines
-      this.ctx.stroke();
-      // ensures that the line is continious
-      this.ctx.beginPath();
-      this.ctx.moveTo(touchX, touchY);
+      this.ctx.moveTo(x, y);
     }
   };
+
 
   // on mouse up, stop the drawing
   stopDrawing = (e) => {
     this.isDrawing = false;
-    // resets the path
     this.ctx.beginPath();
+    this.ctx.closePath();
 
     if (e.type === "touchend") {
       this.isDrawing = false;
