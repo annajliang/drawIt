@@ -80,7 +80,7 @@ class Canvas extends Component {
     this.ctx = this.canvas.current.getContext("2d");
 
     // width of the line
-    this.ctx.lineWidth = 7;
+    // this.ctx.lineWidth = 7;
 
     // ensures that we get a smooth drawing rather than a squared-off edge by default
     this.ctx.lineJoin = "round";
@@ -126,6 +126,10 @@ class Canvas extends Component {
       this.ctx.beginPath();
     }
   };
+
+  strokeSize = (size) => {
+    this.ctx.lineWidth = size;
+  }
 
   // function that allows user to change the default strokeStyle of black and instead choose a custom color
   // hexcolor that user has chosen is retrieved from ColorButton.js which is then passed from Buttons.js to Canvas.js
@@ -232,6 +236,7 @@ class Canvas extends Component {
           <div className="drawItContainer wrapper">
             <Buttons
               colorFn={this.changeColor}
+              strokeFn={this.strokeSize}
               clearFn={this.clearCanvas}
               nextWordFn={this.nextWord}
               saveFn={this.saveDrawing}

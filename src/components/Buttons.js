@@ -3,6 +3,7 @@ import ColorButton from "./ColorButton";
 import ClearButton from "./ClearButton";
 import SaveButton from "./SaveButton";
 import NextWordButton from "./NextWordButton";
+import StrokeButton from './StrokeButton';
 
 const Buttons = (props) => {
     // console.log(props);
@@ -14,6 +15,7 @@ const Buttons = (props) => {
             <ClearButton clearFn={props.clearFn} />
             <NextWordButton nextWordFn={props.nextWordFn} />
             <SaveButton saveFn={props.saveFn} checkSaveFn={props.checkSaveFn} disabled={props.disabled} />
+            <StrokeButton strokeFn={props.strokeFn} />
         </div>
     );
 };

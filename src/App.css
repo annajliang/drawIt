@@ -310,6 +310,11 @@ canvas {
   z-index: 1;
 }
 
+.slider {
+  position: relative;
+  z-index: 2;
+}
+
 .clearImg {
   position: relative;
   top: 1px;
