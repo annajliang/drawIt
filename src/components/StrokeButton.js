@@ -18,11 +18,11 @@ class StrokeButton extends Component {
         return (
             <button className="canvasButton">
                 <input
-                    className="slider"
+                    className="strokeRange"
                     type="range"
                     min="1"
                     max="50"
-                    id="slider"
+                    id="strokeRange"
                     value={this.state.value}
                     onChange={this.adjustStrokeWidth} />
                 <span class="sr-only">Adjust Stroke Size</span>
