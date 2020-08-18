@@ -13,6 +13,7 @@ class Canvas extends Component {
     super();
     // canvas element is an uncontrolled component so it handles updating the DOM for you (no need for it to be in state)
     this.isDrawing = false;
+    this.isBlank = null;
     // using ref to access the canvas element created in the render method
     // find the canvas element save it to a variable
     this.canvas = React.createRef();
@@ -32,6 +33,7 @@ class Canvas extends Component {
 
   // only runs once after the render
   componentDidMount() {
+    this.isBlank = this.canvas.current.toDataURL();
     this.handleResize();
     window.addEventListener("resize", this.handleResize.bind(this));
 
@@ -173,7 +175,7 @@ class Canvas extends Component {
     // checks if the canvas is empty or not
     // if it is empty, then the modal will run prompting the user to draw something before submitting
     // nothing will get stored to the databse
-    if (this.isCanvasBlank(this.canvas.current)) {
+    if (drawingUrl === this.isBlank) {
       // set state to have the modal triggered and allow a re-render to occur
       this.setState({
         showModal: true,
@@ -198,15 +200,6 @@ class Canvas extends Component {
         submissionTime: new Date()
       });
     }
-  };
-
-  // returns true if every pixel's uint32 representation is 0 (or "blank")
-  // thank you Austin Brunkhorst @ stackoverflow.com for this code (https://stackoverflow.com/questions/17386707/how-to-check-if-a-canvas-is-blank)
-  isCanvasBlank = (canvas) => {
-    const pixelBuffer = new Uint32Array(
-      this.ctx.getImageData(0, 0, canvas.width, canvas.height).data.buffer
-    );
-    return !pixelBuffer.some((color) => color !== 0);
   };
 
   checkIfUserCanSave = () => {
