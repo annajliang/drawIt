@@ -1,17 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 
-class ColorButton extends Component {
-  // function that gets the hexcolor from the type of color attribute of the input element
-  getHexColor = (e) => {
-    const hexColor = e.currentTarget.value;
-    // variable is passed back up from ColorButton.js -> Buttons.js -> Canvas.js
-    this.props.colorFn(hexColor);
-  };
-
-  render() {
+const ColorButton = (props) => {
     return (
       // calls the changeColor function that lives in the parent component Canvas.js
-      <button onClick={this.props.colorFn} className="canvasButton" aria-label="change color">
+      <button onClick={props.colorFn} className="canvasButton" aria-label="change color">
         <span className="showText">
           <label htmlFor="colorSelection">
             Color<span aria-hidden="true">&ensp;|&ensp;</span>
@@ -22,12 +14,12 @@ class ColorButton extends Component {
             type="color"
             className="colorSelection"
             // input element listens for a change
-            onChange={this.getHexColor}
+            // function that gets the hexcolor from the type attribute of the input element
+            onChange={(e) => props.colorFn(e.currentTarget.value)}
           />
         </span>
       </button>
     );
-  }
 }
 
 export default ColorButton;
