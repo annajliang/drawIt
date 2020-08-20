@@ -48,7 +48,7 @@ class Canvas extends Component {
       drawingWord: this.getRandomWord(words),
     });
 
-    if (localStorage.getItem("submissionTime") !== null) {
+    if (localStorage.getItem("submissionTime") !== null && localStorage.getItem("resubmissionTime") !== null) {
       subTime = localStorage.getItem("submissionTime").split(' ').slice(4, 5).join('').replace(/:/g, ".");
       subTimestamp = subTime.slice(3, subTime.length);
 
