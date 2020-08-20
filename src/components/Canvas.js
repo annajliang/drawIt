@@ -33,6 +33,11 @@ class Canvas extends Component {
 
   // only runs once after the render
   componentDidMount() {
+    let subTime;
+    let subTimestamp;
+    let resubTime;
+    let resubTimestamp;
+
     this.ctx = this.canvas.current.getContext("2d");
     this.isBlank = this.canvas.current.toDataURL();
     this.handleResize();
@@ -42,6 +47,25 @@ class Canvas extends Component {
     this.setState({
       drawingWord: this.getRandomWord(words),
     });
+
+    if (localStorage.getItem("submissionTime") !== null) {
+      subTime = localStorage.getItem("submissionTime").split(' ').slice(4, 5).join('').replace(/:/g, ".");
+      subTimestamp = subTime.slice(3, subTime.length);
+
+      resubTime = localStorage.getItem("resubmissionTime").split(' ').slice(4, 5).join('').replace(/:/g, ".");
+      resubTimestamp = resubTime.slice(3, resubTime.length);
+    } 
+
+    if (resubTimestamp - subTimestamp < 1) {
+      this.setState({
+        isDisabled: true,
+        submissionTime: new Date(),
+      });
+    } else {
+      this.setState({
+        isDisabled: false,
+      });
+    }
   }
 
   handleResize = () => {
@@ -182,6 +206,7 @@ class Canvas extends Component {
       dbRef.push({ drawingUrl, drawingWord });
       // immediately clear the canvas after the information gets stored
       this.clearCanvas();
+      localStorage.setItem("submissionTime", new Date())
 
       // set state to have the modal triggered and allow a re-render to occur
       // modal will show user a success message
@@ -191,23 +216,25 @@ class Canvas extends Component {
           "Your drawing has been saved to the gallery. Go check it out!",
         modalHeader: "Success!",
         isDisabled: true,
-        submissionTime: new Date()
+        submissionTime: new Date(),
       });
     }
   };
 
   checkIfUserCanSave = () => {
+    localStorage.setItem("resubmissionTime", new Date());
+
     this.setState({
-      reSubmissionTime: new Date()
+      reSubmissionTime: new Date(),
     });
 
     if (this.state.reSubmissionTime - this.state.submissionTime < 60000) {
-      this.setState({
-        showModal: true,
-        modalText:
-          "In order to prevent spamming of the gallery, please wait a minute before saving another drawing.",
-        modalHeader: "Please wait!",
-      });
+        this.setState({
+          showModal: true,
+          modalText:
+            "In order to prevent spamming of the gallery, please wait a minute before saving another drawing.",
+          modalHeader: "Please wait!",
+        });
     } else {
       this.setState({
         isDisabled: false,
